@@ -17,14 +17,14 @@
     <? require('source/empresa/templates/header.php'); ?>
     <!-- FIM DO CABEÇALHO -->
     <div id="corpo" class="container">    
-        <center><h1>Aprovar compras</h1></center>
+        <center><h1 class="itemtabela" id="titulo">Aprovar compras</h1></center>
         <table class="highlight">
             <thead>
                 <tr>
                     <th>COD</th>
                     <th>Data do pedido</th>
                     <th>Valor total</th>
-                    <th>Analisar pedido</th>
+                    <th><center>Analisar pedido</center></th>
                 </tr>
             </thead>
 
