@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 <?php
 
     $opcao = $_GET['opcao'];
 
     switch ($opcao) {
-        case "aprovar_encomenda":
+        case "aprovarencomenda":
             include('source/empresa/aprovarencomenda.php');
             break;
         case "empresainicio":
@@ -16,17 +15,3 @@
     }
 
 ?>
-=======
-<?
-
-$opcao = $_GET["opcao"];
-
-switch ($opcao) {
-    case "aprovarencomenda":
-        include ('source/empresa/aprovar_encomenda.php');
-        break
-    default:
-        include ('source/cliente/inicio.php');
-        break;    
-}
->>>>>>> master

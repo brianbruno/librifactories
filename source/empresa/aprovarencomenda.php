@@ -17,32 +17,34 @@
     <!-- FIM DO CABEÇALHO -->
     <div id="corpo">    
 
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="carousel carousel-slider center" data-indicators="true">
-                    <div class="carousel-fixed-item center">
-                        <a class="btn waves-effect teal lighten-1 grey-text">button</a>
-                    </div>
-                    <div class="carousel-item red white-text" href="#one!">
-                        <h2>#LibriFactories</h2>
-                        <p class="white-text">This is your first panel</p>
-                    </div>
-                    <div class="carousel-item amber white-text" href="#two!">
-                        <h2>Libri Factories?</h2>
-                        <p class="white-text">This is your second panel</p>
-                    </div>
-                    <div class="carousel-item green white-text" href="#three!">
-                        <h2>Libri Factories!</h2>
-                        <p class="white-text">This is your third panel</p>
-                    </div>
-                    <div class="carousel-item blue white-text" href="#four!">
-                        <h2>Libri Factorie$</h2>
-                        <p class="white-text">This is your fourth panel</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+        <table class="responsive-table highlight">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Alvin</td>
+                    <td>Eclair</td>
+                    <td>$0.87</td>
+                </tr>
+                <tr>
+                    <td>Alan</td>
+                    <td>Jellybean</td>
+                    <td>$3.76</td>
+                </tr>
+                <tr>
+                    <td>Jonathan</td>
+                    <td>Lollipop</td>
+                    <td>$7.00</td>
+                </tr>
+            </tbody>
+        </table>
+            
     </div>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
