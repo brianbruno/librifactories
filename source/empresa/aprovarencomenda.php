@@ -20,27 +20,31 @@
         <table class="responsive-table highlight">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Item Name</th>
-                    <th>Item Price</th>
+                    <th>COD</th>
+                    <th>Autor do pedido</th>
+                    <th>Valor total</th>
+                    <th>Analisar pedido</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td>Alvin</td>
+                    <td>103285</td>
                     <td>Eclair</td>
+                    <td>R$ 1270,30</td>
+                    <td><i class="material-icons">view_list</i></td>
+                </tr>
+                <tr>
+                    <td>109855</td>
+                    <td>Jellybean</td>
+                    <td>R$ 782,20</td>
                     <td>$0.87</td>
                 </tr>
                 <tr>
-                    <td>Alan</td>
-                    <td>Jellybean</td>
-                    <td>$3.76</td>
-                </tr>
-                <tr>
-                    <td>Jonathan</td>
+                    <td>109825</td>
                     <td>Lollipop</td>
-                    <td>$7.00</td>
+                    <td>R$ 7856,30</td>
+                    <td><i class="material-icons">view_list</i></td>
                 </tr>
             </tbody>
         </table>
