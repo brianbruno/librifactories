@@ -2,4 +2,16 @@
 
     $opcao = $_GET['opcao'];
 
+    switch ($opcao) {
+        case "aprovar_encomenda":
+            include('source/empresa/aprovarencomenda.php');
+            break;
+        case "empresainicio":
+            include('source/empresa/inicio.php');
+            break;
+        default:
+            include ('source/inicio.php');
+            break;
+    }
+
 ?>
