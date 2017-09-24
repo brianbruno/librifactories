@@ -18,91 +18,140 @@
     <!-- FIM DO CABEÇALHO -->
     <div id="corpo" class="container">    
         <center><h1 id="titulo">Aprovar compras</h1></center>
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th>COD</th>
-                    <th>Data do pedido</th>
-                    <th>Valor total</th>
-                    <th><center>Analisar pedido</center></th>
-                </tr>
-            </thead>
+        
+        <ul id="tabs-swipe-demo" class="tabs ">
+            <li class="tab col s3"><a class="active tabitem" href="#pedidospendentes">Pedidos pendentes</a></li>
+            <li class="tab col s3"><a class="tabitem" href="#pedidosaprovados">Pedidos aprovados</a></li>
+            <li class="tab col s3"><a class="tabitem" href="#pedidosreprovados">Pedidos reprovados</a></li>
+        </ul>
+        <div id="pedidospendentes" class="col s12 m12 l12">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>COD</th>
+                        <th>Data do pedido</th>
+                        <th>Valor total</th>
+                        <th><center>Analisar pedido</center></th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr class="itemtabela">
-                    <td>103285</td>
-                    <td>12/09/2017</td>
-                    <td>R$ 1270,30</td>
-                    <td><center><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">view_list</i>Ver itens</a></center></td>
-                </tr>
-                <tr class="itemtabela">
-                    <td>109855</td>
-                    <td>12/09/2017</td>
-                    <td>R$ 782,20</td>
-                    <td><center><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">view_list</i>Ver itens</a></center></td>
-                </tr>
-                <tr class="itemtabela">
-                    <td>109825</td>
-                    <td>12/09/2017</td>
-                    <td>R$ 7856,30</td>
-                    <td><center><a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons">view_list</i>Ver itens</a></center></td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-        
+                <tbody id="tbpedidospendentes">
+                    <tr class="itemtabela">
+                        <td>103285</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 1270,30</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center></td>
+                    </tr>
+                    <tr class="itemtabela">
+                        <td>109855</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 782,20</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center></td>
+                    </tr>
+                    <tr class="itemtabela">
+                        <td>109825</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 7856,30</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="pedidosaprovados" class="col s12 m12 l12">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>COD</th>
+                        <th>Data da aprovação</th>
+                        <th>Valor total</th>
+                        <th><center>Informações</center></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="itemtabela">
+                        <td>103285</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 1270,30</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center></td>
+                    </tr>
+                    <tr class="itemtabela">
+                        <td>109855</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 782,20</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center></td>
+                    </tr>
+                    <tr class="itemtabela">
+                        <td>109825</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 7856,30</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center></td>
+                    </tr>
+                </tbody>
+            </table>        
+        </div>
+        <div id="pedidosreprovados" class="col s12 m12 l12">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>COD</th>
+                        <th>Data da aprovação</th>
+                        <th>Valor total</th>
+                        <th><center>Informações</center></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="itemtabela">
+                        <td>103285</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 1270,30</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" onclick="">Ver informações</a></center></td>
+                    </tr>
+                    <tr class="itemtabela">
+                        <td>109855</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 782,20</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center></td>
+                    </tr>
+                    <tr class="itemtabela">
+                        <td>109825</td>
+                        <td>12/09/2017</td>
+                        <td>R$ 7856,30</td>
+                        <td><center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center></td>
+                    </tr>
+                </tbody>
+            </table>       
+        </div>
+
         <!-- Modal Structure -->
-        <div id="modal1" class="modal modal-fixed-footer">
+        <div id="veritens" class="modal modal-fixed-footer">
             <div class="modal-content">
-                <h4>Aprovar itens do pedido 109825</h4>
-                <ul class="collection">
-                    <li class="collection-item avatar">
-                        <img src="images/yuna.jpg" alt="" class="circle">
-                        <span class="title">Title</span>
-                        <p>First Line <br> Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
-                    <li class="collection-item avatar">
-                        <i class="material-icons circle">folder</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br> Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
-                    <li class="collection-item avatar">
-                        <i class="material-icons circle green">insert_chart</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br> Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
-                    <li class="collection-item avatar">
-                        <i class="material-icons circle red">play_arrow</i>
-                        <span class="title">Title</span>
-                        <p>First Line <br> Second Line
-                        </p>
-                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                    </li>
+                <h4>Aprovar itens do pedido <span id="codpedido"></span></h4>
+                <ul class="collection" id="itensModal">
                 </ul>
             </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancelar</a>
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aprovar</a>
+            <div class="modal-footer">                
+                <span id="cancelaModal"><a href="#!" class="modal-action modal-close waves-effect waves-red btn  red darken-4">Cancelar</a></span>
+                <span id="confirmaModal"><a href="#!" class="modal-action modal-close waves-effect waves-green btn green lighten-4">Aprovar</a></span>
             </div>
         </div>
-         
-            
+        <!-- Fim do Modal -->
     </div>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script> 
+    <script type="text/javascript" src="source/empresa/script/scriptencomenda.js"></script>
     <script>
     
         $(document).ready(function(){
             // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('ul.tabs').tabs({
+                swipeable : false,
+                responsiveThreshold : 1920
+            });
             $('.modal').modal();
+            $('ul.tabs').tabs('select_tab', 'pedidospendentes');
         });
     </script>
 </body>
