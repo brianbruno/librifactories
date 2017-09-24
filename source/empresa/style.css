@@ -1,5 +1,6 @@
 /* Style feito por Brian */ 
 
 .itemtabela:hover {
-    background-color: ##e0f2f1 !important;
+    background-color: #b2dfdb !important;
+    color: #6200ea;
 }
