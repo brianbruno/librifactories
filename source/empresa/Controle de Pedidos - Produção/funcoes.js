@@ -72,7 +72,7 @@ function sumirImagem(i) {
 	document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('source/empresa/Controle de Pedidos - Produção/Libri.jpg')";
 	document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "" ;
 	document.getElementsByClassName("nomeProduto")[i-1].innerHTML = "Shulambs";
-    $(".preco-unitario").show("hide");
+    $(".preco-unitario").hide("fast");
 	document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "";
 	document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + precoTotal(i);
 	document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$900";
