@@ -65,19 +65,21 @@ function iC() {
         itemClicado = true;
     }
     else {
-        sumirImagem();
         itemClicado = false;
+        sumirImagem();
     }
 }
 
 function mostrarImagem(i, j) {
-	document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('" + imagens[i, j] + "')";
-	document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades" ;
-	document.getElementsByClassName("nomeProduto")[i-1].innerHTML = document.getElementsByClassName("item")[j-1].innerHTML;
-    $(".preco-unitario").show("fast");
-	document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "Preço unitário: R$" + precos[i, j];
-	document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + (precos[i, j] * 5);
-	document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$150";
+    if (!itemClicado) {
+	   document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('" + imagens[i, j] + "')";
+	   document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades" ;
+	   document.getElementsByClassName("nomeProduto")[i-1].innerHTML = document.getElementsByClassName("item")[j-1].innerHTML;
+        $(".preco-unitario").show("fast");
+	   document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "Preço unitário: R$" + precos[i, j];
+	   document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + (precos[i, j] * 5);
+	   document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$150";
+    }
 }
 
 function sumirImagem(i) {
