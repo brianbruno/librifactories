@@ -3,23 +3,20 @@ var descricoes = new Array();
 var precos = new Array();
 var materiaPrima = new Array();
 var tempoEstimado = new Array();
+var itemClicado = false;
 
 $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
     $('select').material_select();
-	
-	sumirImagem(1); sumirImagem(2); sumirImagem(3);
-	
-	document.getElementsByClassName("materiasPrimas")[0].innerHTML = "<h5>Materia-prima a comprar</h5><span style='color: green'>"+materiaPrima[1].nome[0]+": R$"+materiaPrima[1].preco[0]+"</span><br><span style='color: red'>"+materiaPrima[1].nome[1]+": R$"+materiaPrima[1].preco[1]+"</span>";
     
-	document.getElementsByClassName("materiasPrimas")[1].innerHTML = "<h5>Materia-prima a comprar</h5><span style='color: green'>"+materiaPrima[2].nome[0]+": R$"+materiaPrima[2].preco[0]+"</span><br><span style='color: red'>"+materiaPrima[2].nome[1]+": R$"+materiaPrima[2].preco[1]+"</span>";
-    
-	document.getElementsByClassName("materiasPrimas")[2].innerHTML = "<h5>Materia-prima a comprar</h5><span style='color: green'>"+materiaPrima[3].nome[0]+": R$"+materiaPrima[3].preco[0]+"</span><br><span style='color: red'>"+materiaPrima[3].nome[1]+": R$"+materiaPrima[3].preco[1]+"</span>";
-	
-	document.getElementsByClassName("tempoEstimado")[0].innerHTML = "<h5>Tempo estimado</h5>"+tempoEstimado[1].nome[0]+": "+tempoEstimado[1].tempo[0]+"<br>"+tempoEstimado[1].nome[1]+": "+tempoEstimado[1].tempo[1]+"<br>"+tempoEstimado[1].nome[2]+": "+tempoEstimado[1].tempo[2]+"<hr>"+tempoEstimado[1].nome[3]+": "+tempoEstimado[1].tempo[3];
-	document.getElementsByClassName("tempoEstimado")[1].innerHTML = "<h5>Tempo estimado</h5>"+tempoEstimado[2].nome[0]+": "+tempoEstimado[2].tempo[0]+"<br>"+tempoEstimado[2].nome[1]+": "+tempoEstimado[2].tempo[1]+"<br>"+tempoEstimado[2].nome[2]+": "+tempoEstimado[2].tempo[2]+"<hr>"+tempoEstimado[2].nome[3]+": "+tempoEstimado[2].tempo[3];
-	document.getElementsByClassName("tempoEstimado")[2].innerHTML = "<h5>Tempo estimado</h5>"+tempoEstimado[3].nome[0]+": "+tempoEstimado[3].tempo[0]+"<br>"+tempoEstimado[3].nome[1]+": "+tempoEstimado[3].tempo[1]+"<br>"+tempoEstimado[3].nome[2]+": "+tempoEstimado[3].tempo[2]+"<hr>"+tempoEstimado[3].nome[3]+": "+tempoEstimado[3].tempo[3];
+    for (let i = 1; i <= 3; i++) {
+        sumirImagem(i);    
+        
+        document.getElementsByClassName("materiasPrimas")[i-1].innerHTML = "<h5>Materia-prima a comprar</h5>"+materiaPrima[i].nome[0]+": R$"+materiaPrima[i].preco[0]+"<br>"+materiaPrima[i].nome[1]+": R$"+materiaPrima[i].preco[1];
+         
+	    document.getElementsByClassName("tempoEstimado")[i-1].innerHTML = "<h5>Tempo estimado</h5>"+tempoEstimado[1].nome[0]+": "+tempoEstimado[1].tempo[0]+"<br>"+tempoEstimado[1].nome[1]+": "+tempoEstimado[1].tempo[1]+"<br>"+tempoEstimado[1].nome[2]+": "+tempoEstimado[1].tempo[2]+"<hr>"+tempoEstimado[1].nome[3]+": "+tempoEstimado[1].tempo[3];
+    }
 });
 
 for (let i = 1; i <= 6; i++) {
@@ -45,8 +42,8 @@ for (let i = 1; i <= 6; i++) {
 	precos[i, 6] = 10.00;
 	
 	materiaPrima[i] = {
-		"nome": ["PET", "Polipropileno"],
-		"preco": [(20.00 * i), (40.00 * i)]
+		"nome": ["PET", "Polipropileno", "Total"],
+		"preco": [(20.00 * i), (40.00 * i), (60.00 * i)]
 	}
 	
 	tempoEstimado[i] = {
@@ -55,6 +52,7 @@ for (let i = 1; i <= 6; i++) {
 	}
 }
 
+
 function precoTotal(i) {
 	var total = 0.0;
 	for (let a = 1; a <= 6; a++)
@@ -62,20 +60,34 @@ function precoTotal(i) {
 	return total;
 }
 
+function iC() {
+    if (!itemClicado) {
+        itemClicado = true;
+    }
+    else {
+        sumirImagem();
+        itemClicado = false;
+    }
+}
+
 function mostrarImagem(i, j) {
 	document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('" + imagens[i, j] + "')";
 	document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades" ;
 	document.getElementsByClassName("nomeProduto")[i-1].innerHTML = document.getElementsByClassName("item")[j-1].innerHTML;
+    $(".preco-unitario").show("fast");
 	document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "Preço unitário: R$" + precos[i, j];
 	document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + (precos[i, j] * 5);
 	document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$150";
 }
 
 function sumirImagem(i) {
-	document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('imagens/librifactories.jpg')";
-	document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "" ;
-	document.getElementsByClassName("nomeProduto")[i-1].innerHTML = "Shulambs";
-	document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "";
-	document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + precoTotal(i);
-	document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$900";
+    if (!itemClicado) {
+	   document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('source/empresa/Libri.jpg')";
+	   document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "" ;
+	   document.getElementsByClassName("nomeProduto")[i-1].innerHTML = "Shulambs";
+        $(".preco-unitario").hide("fast");
+	   document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "";
+	   document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + precoTotal(i);
+	   document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$900";
+    }
 }
