@@ -11,23 +11,15 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<!--Meu estilo-->
-	<link rel="stylesheet" type="text/css" href="source/empresa/Controle de Pedidos - Produção/estilo.css">
+	<link rel="stylesheet" type="text/css" href="source/empresa/style/estilo.css">
 	<!--Meu script-->
-	<script src="source/empresa/Controle de Pedidos - Produção/funcoes.js"></script>
+	<script src="source/empresa/script/funcoes.js"></script>
 </head>
 
 <body>
-	<nav>
-    	<div class="nav-wrapper blue-grey darken-4">
-      		<a href="#!" class="brand-logo blue-grey-text text-lighten-4">Libri Factories</a> 
-      		<a href="#!" class="brand-logo center">Controle de Pedidos</a>
-      		<ul id="nav-mobile" class="right hide-on-med-and-down">
-        		<li><a class="blue-grey-text text-lighten-4" href="sass.html">Início</a></li>
-        		<li><a class="blue-grey-text text-lighten-4" href="badges.html">Sobre</a></li>
-        		<li><a class="blue-grey-text text-lighten-4" href="collapsible.html">Minha Conta</a></li>
-      		</ul>
-	    </div>
-  	</nav>
+    <!-- CABEÇALHO -->
+    <? require('source/empresa/templates/header.php'); ?>
+    <!-- FIM DO CABEÇALHO -->
 	<div class="container">
 		<div class="col s12" div="filtros">
             <div id="divEsquerda">

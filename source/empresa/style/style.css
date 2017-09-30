@@ -1,0 +1,18 @@
+/* Style feito por Brian */ 
+
+.itemtabela:hover {
+    background-color: #b2dfdb !important;
+    color: #6200ea;
+}
+
+.itemtab {
+    color: #004d40 !important;
+}
+
+.itemtab:hover{
+    color: #00796b !important;
+}
+
+body {
+    background-image: url("https://files.slack.com/files-tmb/T6WGP2WAU-F77TSB5QD-9191f5efb3/fundo_720.jpg");
+}
