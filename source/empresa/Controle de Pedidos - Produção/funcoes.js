@@ -3,6 +3,7 @@ var descricoes = new Array();
 var precos = new Array();
 var materiaPrima = new Array();
 var tempoEstimado = new Array();
+var itemClicado = false;
 
 $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
@@ -41,8 +42,8 @@ for (let i = 1; i <= 6; i++) {
 	precos[i, 6] = 10.00;
 	
 	materiaPrima[i] = {
-		"nome": ["PET", "Polipropileno"],
-		"preco": [(20.00 * i), (40.00 * i)]
+		"nome": ["PET", "Polipropileno", "Total"],
+		"preco": [(20.00 * i), (40.00 * i), (60.00 * i)]
 	}
 	
 	tempoEstimado[i] = {
@@ -51,11 +52,22 @@ for (let i = 1; i <= 6; i++) {
 	}
 }
 
+
 function precoTotal(i) {
 	var total = 0.0;
 	for (let a = 1; a <= 6; a++)
 		total += precos[i, a] * 5;
 	return total;
+}
+
+function iC() {
+    if (!itemClicado) {
+        itemClicado = true;
+    }
+    else {
+        sumirImagem();
+        itemClicado = false;
+    }
 }
 
 function mostrarImagem(i, j) {
@@ -69,11 +81,13 @@ function mostrarImagem(i, j) {
 }
 
 function sumirImagem(i) {
-	document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('source/empresa/Controle de Pedidos - Produção/Libri.jpg')";
-	document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "" ;
-	document.getElementsByClassName("nomeProduto")[i-1].innerHTML = "Shulambs";
-    $(".preco-unitario").hide("fast");
-	document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "";
-	document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + precoTotal(i);
-	document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$900";
+    if (!itemClicado) {
+	   document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('source/empresa/Controle de Pedidos - Produção/Libri.jpg')";
+	   document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "" ;
+	   document.getElementsByClassName("nomeProduto")[i-1].innerHTML = "Shulambs";
+        $(".preco-unitario").hide("fast");
+	   document.getElementsByClassName("preco-unitario")[i-1].innerHTML = "";
+	   document.getElementsByClassName("preco-total")[i-1].innerHTML = "Preço total: R$" + precoTotal(i);
+	   document.getElementsByClassName("custo-producao")[i-1].innerHTML = "Produção: R$900";
+    }
 }
