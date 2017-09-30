@@ -4,20 +4,21 @@
     if (count($_GET) > 0) $opcao = $_GET['opcao'];
 
     switch ($opcao) {
-        case "aprovarencomenda":
+        case "aprovarencomenda":            
+            $nomeTela = "Aprovar Encomenda";
             include('source/empresa/aprovarencomenda.php');
             break;
-        case "empresainicio":
+        case "empresainicio":            
+            $nomeTela = "Libri Factories";
             include('source/empresa/inicio.php');
             break;
         case "controlepedidos":
-            include('source/empresa/Controle de Pedidos - Produção/controlepedidos.php');
+            $nomeTela = "Controle de Pedidos";
+            include('source/empresa/controlepedidos.php');
             break;
         case "meuspedidos":
-            include('source/cliente/Meus Pedidos - Cliente/meuspedidos.php');
-            break;
-        case "produtosestoque":
-            include('source/empresa/controleEstoque.php');
+            $nomeTela = "Meus Pedidos";
+            include('source/cliente/meuspedidos.php');
             break;
         default:
             include ('source/inicio.php');
