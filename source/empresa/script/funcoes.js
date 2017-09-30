@@ -60,14 +60,14 @@ function precoTotal(i) {
 	return total;
 }
 
-function iC() {
+function iC(i, j) {
     if (!itemClicado) {
         itemClicado = true;
     }
     else {
         itemClicado = false;
-        sumirImagem();
     }
+    mostrarImagem(i, j);
 }
 
 function mostrarImagem(i, j) {

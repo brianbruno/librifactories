@@ -88,12 +88,12 @@
       <div class="pedidoEsquerda">
 		<h5>Itens</h5>
 		<div class="itensPedido" onmouseleave="sumirImagem(1);">
-			<div class="item" onmouseenter="mostrarImagem(1, 1);" onclick="iC()">Pote</div>
-			<div class="item" onmouseenter="mostrarImagem(1, 2);" onclick="iC()">Potinho</div>
-			<div class="item" onmouseenter="mostrarImagem(1, 3);" onclick="iC()">Latinha</div><br>
-			<div class="item" onmouseenter="mostrarImagem(1, 4);" onclick="iC()">Cereal</div>
-			<div class="item" onmouseenter="mostrarImagem(1, 5);" onclick="iC()">Tomate</div>
-			<div class="item" onmouseenter="mostrarImagem(1, 6);" onclick="iC()">Chocolate</div>
+			<div class="item" onmouseenter="mostrarImagem(1, 1);" onclick="iC(1, 1)">Pote</div>
+			<div class="item" onmouseenter="mostrarImagem(1, 2);" onclick="iC(1, 2)">Potinho</div>
+			<div class="item" onmouseenter="mostrarImagem(1, 3);" onclick="iC(1, 3)">Latinha</div><br>
+			<div class="item" onmouseenter="mostrarImagem(1, 4);" onclick="iC(1, 4)">Cereal</div>
+			<div class="item" onmouseenter="mostrarImagem(1, 5);" onclick="iC(1, 5)">Tomate</div>
+			<div class="item" onmouseenter="mostrarImagem(1, 6);" onclick="iC(1, 6)">Chocolate</div>
 		</div>
 		<div class="materiasPrimas">
 			<h5>Materia-prima a comprar</h5>
@@ -136,12 +136,12 @@
       <div class="pedidoEsquerda">
 		<h5>Itens</h5>
 		<div class="itensPedido" onmouseleave="sumirImagem(2);">
-			<div class="item" onmouseenter="mostrarImagem(2, 1);" onclick="iC()">Pote</div>
-			<div class="item" onmouseenter="mostrarImagem(2, 2);" onclick="iC()">Potinho</div>
-			<div class="item" onmouseenter="mostrarImagem(2, 3);" onclick="iC()">Latinha</div><br>
-			<div class="item" onmouseenter="mostrarImagem(2, 4);" onclick="iC()">Cereal</div>
-			<div class="item" onmouseenter="mostrarImagem(2, 5);" onclick="iC()">Tomate</div>
-			<div class="item" onmouseenter="mostrarImagem(2, 6);" onclick="iC()">Chocolate</div>
+			<div class="item" onmouseenter="mostrarImagem(2, 1);" onclick="iC(2, 1)">Pote</div>
+			<div class="item" onmouseenter="mostrarImagem(2, 2);" onclick="iC(2, 2)">Potinho</div>
+			<div class="item" onmouseenter="mostrarImagem(2, 3);" onclick="iC(2, 3)">Latinha</div><br>
+			<div class="item" onmouseenter="mostrarImagem(2, 4);" onclick="iC(2, 4)">Cereal</div>
+			<div class="item" onmouseenter="mostrarImagem(2, 5);" onclick="iC(2, 5)">Tomate</div>
+			<div class="item" onmouseenter="mostrarImagem(2, 6);" onclick="iC(2, 6)">Chocolate</div>
 		</div>
 		<div class="materiasPrimas">
 			<h5>Materia-prima a comprar</h5>
@@ -184,12 +184,12 @@
       <div class="pedidoEsquerda">
 		<h5>Itens</h5>
 		<div class="itensPedido" onmouseleave="sumirImagem(3);">
-			<div class="item" onmouseenter="mostrarImagem(3, 1);" onclick="iC();">Pote</div>
-			<div class="item" onmouseenter="mostrarImagem(3, 2);" onclick="iC();">Potinho</div>
-			<div class="item" onmouseenter="mostrarImagem(3, 3);" onclick="iC();">Latinha</div><br>
-			<div class="item" onmouseenter="mostrarImagem(3, 4);" onclick="iC();">Cereal</div>
-			<div class="item" onmouseenter="mostrarImagem(3, 5);" onclick="iC();">Tomate</div>
-			<div class="item" onmouseenter="mostrarImagem(3, 6);" onclick="iC();">Chocolate</div>
+			<div class="item" onmouseenter="mostrarImagem(3, 1);" onclick="iC(3, 1);">Pote</div>
+			<div class="item" onmouseenter="mostrarImagem(3, 2);" onclick="iC(3, 2);">Potinho</div>
+			<div class="item" onmouseenter="mostrarImagem(3, 3);" onclick="iC(3, 3);">Latinha</div><br>
+			<div class="item" onmouseenter="mostrarImagem(3, 4);" onclick="iC(3, 4);">Cereal</div>
+			<div class="item" onmouseenter="mostrarImagem(3, 5);" onclick="iC(3, 5);">Tomate</div>
+			<div class="item" onmouseenter="mostrarImagem(3, 6);" onclick="iC(3, 6);">Chocolate</div>
 		</div>
 		<div class="materiasPrimas">
 			<h5>Materia-prima a comprar</h5>
