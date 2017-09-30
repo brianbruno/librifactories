@@ -16,6 +16,9 @@
         case "meuspedidos":
             include('source/cliente/Meus Pedidos - Cliente/meuspedidos.php');
             break;
+        case "produtosestoque":
+            include('source/empresa/controleEstoque.php');
+            break;
         default:
             include ('source/inicio.php');
             break;
