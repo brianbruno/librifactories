@@ -1,102 +1,107 @@
     body {
-      background-image: url("https://files.slack.com/files-tmb/T6WGP2WAU-F77TSB5QD-9191f5efb3/fundo_720.jpg");  
+        background-image: url("https://files.slack.com/files-tmb/T6WGP2WAU-F77TSB5QD-9191f5efb3/fundo_720.jpg");
     }
-
+    
     #modal1 {
         padding: 50px;
     }
-
+    
     .noSelect {
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
     }
-	
+    
     .opcoesProduto {
-    	position: static;
-		display: inline-block;
-		float: right;
-		margin-right: 10px;
+        position: static;
+        display: inline-block;
+        float: right;
+        margin-right: 10px;
     }
-
-	#t {
-		display: inline-block;
-	}
-
-	.divTable {
-		display: inline-block;
-		width: 70% !important;
-	}
-	
-	.imagem {
-		-moz-background-size:100% 100%;
-		-webkit-background-size:100% 100%;
-		background-size:100% 100%;
-		display: inline-block;
-		float: right;
-		width: 25%;
-		height: 188px;
-		margin-right: 10px;
-		background-color: gray;
-		border: 1px solid gray;
-		transition: .4s;
-	}
-  
+    
+    #t {
+        display: inline-block;
+    }
+    
+    .divTable {
+        display: inline-block;
+        width: 70% !important;
+    }
+    
+    .imagem {
+        -moz-background-size: 100% 100%;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        display: inline-block;
+        float: right;
+        width: 25%;
+        height: 188px;
+        margin-right: 10px;
+        background-color: gray;
+        border: 1px solid gray;
+        transition: .4s;
+    }
+    
     .detalhes-item {
-      overflow: hidden;
-      opacity: 0;
-      margin-top: 0px;
-      padding-left: 45px;
-      padding-bottom: 10px;
-      box-shadow: 1px 1px 1px 1px RGBA(0,0,0, .1);
-      transition: 0.6s ease-out;
+        overflow: hidden;
+        opacity: 0;
+        margin-top: 0px;
+        padding-left: 45px;
+        padding-bottom: 10px;
+        box-shadow: 1px 1px 1px 1px RGBA(0, 0, 0, .1);
+        transition: 0.6s ease-out;
     }
-
-	.item.ativo {
+    
+    .item.ativo {
         width: 100%;
-        box-shadow: 1px 1px 1px 1px RGBA(0,0,0, .6);
+        box-shadow: 1px 1px 1px 1px RGBA(0, 0, 0, .6);
         padding-left: 15px;
         border-left: 0px solid #26a69a;
         border-right: 0px solid #26a69a;
-		text-align: center;
+        text-align: center;
         border-radius: 15px 15px 0px 0px !important;
-	}
-
+    }
+    
     .container {
         background-color: white;
         border-radius: 10px;
         padding: 20px;
         margin-bottom: 220px;
     }
-  
+    
     .container:first-of-type {
-	  	margin-top: 20px;
+        margin-top: 20px;
     }
-  
-	.item {
-	    display: inline-block;
-		width: 49%;
-		height: auto;
-		margin-top: 10px;
-        box-shadow: 1px 1px 1px 1px RGBA(0,0,0, .1);
+    
+    .item {
+        display: inline-block;
+        width: 49%;
+        height: auto;
+        margin-top: 10px;
+        box-shadow: 1px 1px 1px 1px RGBA(0, 0, 0, .1);
         transition: .05s, border-radius 1s;
         border-radius: 0px 0px 0px 0px;
         padding-top: 2px;
         padding-left: 20px;
-	}
-  
-	.esquerda {
+    }
+    
+    .esquerda {
         border-left: 30px solid #26a69a;
-	}
-  
-	.direita {
+    }
+    
+    .direita {
         border-right: 30px solid #26a69a;
-	}
-  
+    }
     /*.item.primeiro.esquerda {
         margin-top: 20px;
         border-radius: 15px 0px 0px 0px;
@@ -113,84 +118,100 @@
     .item.ultimo.direita {
         border-radius: 0px 0px 15px 0px;
     }*/
-	
-	.item.ativo:hover {
-		cursor: pointer;
-	}
-
-	.item.naoAtivo:hover {
-        box-shadow: 1px 1px 1px 1px RGBA(0,0,0, .6);
-		cursor: pointer;
+    
+    .item.ativo:hover {
+        cursor: pointer;
+    }
+    
+    .item.naoAtivo:hover {
+        box-shadow: 1px 1px 1px 1px RGBA(0, 0, 0, .6);
+        cursor: pointer;
         padding-left: 15px;
-	}
-  
-	.item.naoAtivo.esquerda:hover {
+    }
+    
+    .item.naoAtivo.esquerda:hover {
         border-left: 35px solid #186860 !important;
-	}
-  
-	.item.naoAtivo.direita:hover {
+    }
+    
+    .item.naoAtivo.direita:hover {
         border-right: 35px solid #186860 !important;
-	}
+    }
+    
+    .nome {
+        font-weight: bold;
+    }
+    
+    #divEsquerda {
+        margin-right: 43%;
+        display: inline-block;
+    }
+    
+    .input-field.select {
+        display: inline-block;
+        width: 150px;
+        margin-bottom: -20px;
+    }
+    
+    .preloader-wrapper {
+        position: fixed;
+        top: 50%;
+        right: 50%;
+    }
+    
+    .prox {
+        position: relative;
+        float: right;
+        background-color: white;
+        text-align: center;
+        width: 20px;
+        font-size: 30px;
+        top: 64px;
+        opacity: .8;
+        right: 5;
+        border-radius: 10px;
+        transition: .05s;
+        opacity: 0;
+    }
+    
+    .prox:hover,
+    .ant:hover {
+        opacity: .8;
+    }
+    
+    .ant {
+        position: relative;
+        float: left;
+        background-color: white;
+        text-align: center;
+        width: 20px;
+        font-size: 30px;
+        top: 64px;
+        opacity: .8;
+        left: 5;
+        border-radius: 10px;
+        transition: .05s;
+        opacity: 0;
+    }
+    
+    .prox:hover, .ant:hover {
+        cursor: pointer;
+    }
 
-	.nome {
-   		font-weight: bold;
-	}
-  
-	#divEsquerda {
-		margin-right: 43%;
-		display: inline-block;
-	}
-  
-	.input-field.select {
-		display: inline-block;
-		width: 150px;
-		margin-bottom: -20px;
-	}
-  
-	.preloader-wrapper {
-		position: fixed;
-		top: 50%;
-		right: 50%;
-	}
-	
-	.prox {
-		position: relative;
-		float: right;
-		background-color: white;
-		text-align: center;
-		width: 20px;
-		font-size: 30px;
-		top: 64px;
-		opacity: .8;
-		right: 5;
-		border-radius: 10px;
-		transition: .05s;
-		opacity: 0;
-	}
-	
-	.prox:hover, .ant:hover {
-		opacity: .8;
-	}
-	
-	.ant {
-		position: relative;
-		float: left;
-		background-color: white;
-		text-align: center;
-		width: 20px;
-		font-size: 30px;
-		top: 64px;
-		opacity: .8;
-		left: 5;
-		border-radius: 10px;
-		transition: .05s;
-		opacity: 0;
-	}
-	
-	.prox:hover, .ant:hover {
-		cursor: pointer;
-	}
-  
-	html {
-		overflow-y: scroll;
-	}
+    /*  CODIGO CSS IGOR  */
+    
+    div.contatoComEmpresa {
+        position: fixed;
+        right: 145px;
+        top: 173px;
+        display: inline-block;
+        width: 700px;
+    }
+    
+    div.row {
+        display: inline;
+        margin: 0;
+    }
+    
+    html {
+        overflow-y: scroll;
+    }
