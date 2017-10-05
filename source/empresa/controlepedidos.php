@@ -28,11 +28,11 @@
 					<label for="test1">Todos os pedidos</label>
     			</span>
     			<span class="fl">
-      				<input name="group1" type="radio" id="test2" />
+      				<input name="group1" type="radio" id="test2"/>
       				<label for="test2">Pedidos aprovados</label>
     			</span>
     			<span class="fl">
-      				<input name="group1" type="radio" id="test3" />
+      				<input name="group1" type="radio" id="test3"/>
       				<label for="test3">Pedidos rejeitados</label>
     			</span>
             </div>
@@ -45,7 +45,7 @@
                 </select>
             </div>
   		</div> <hr>
-		<table class="responsive-table centered">
+		<table class="responsive-table centered highlight">
         <thead>
           <tr>
               <th>Cod.</th>
