@@ -641,7 +641,7 @@
             }
             
             function trocaDeImagem(){
-                $("#imgok").fadeOut(1);
+                $("#imgok").fadeOut(100);
                 document.getElementById("imgok").src = "source/cliente/img/mensagemEnviada.gif";   
                 $("#imgok").fadeIn(200);
                 setTimeout(trocaDeImagem2, 2100);
@@ -650,6 +650,10 @@
             function trocaDeImagem2(){
                 $("#imgok").fadeOut(500);
                 $("#contatoMensagem").slideToggle(600);
+                setTimeout(trocaNovamente, 2300);
+            }
+            function trocaNovamente(){
+                  document.getElementById("imgok").src = "source/cliente/img/carregando.gif"; 
             }
         </script>
         
