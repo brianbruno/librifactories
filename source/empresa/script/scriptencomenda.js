@@ -4,7 +4,7 @@ var data = {
             "cod": "103285",
             "item": [
                 {
-                    "nome": "5 Kg de Propietileno", 
+                    "nome": "5 litros de água de coco", 
                     "quantidade": 5,
                     "valortotal": 250.32,
                     "aprovado": false
@@ -119,9 +119,9 @@ var data = {
         ]
 
 };
-    
 
 $(document).ready(function () {
+    getData();
     atualizarTabelaPedidosPendentes(data);
 });
 
@@ -176,6 +176,21 @@ function alteraBotoes(item){
     } else {
         $('#confirmaModal').html('<a href="#!" class="modal-action modal-close waves-effect waves-green btn light-green darken-4">Aprovar</a>');
     }
+}
+
+function getData() {
+    Materialize.toast("Teste",4000);
+    $.ajax({
+        type: "GET",
+        url: "http://104.41.29.55:880/listarProdutos",
+        dataType: "json",                
+        success: function (dados) {
+            for(i=0;i<dados.id.length;i++){
+                $('#itenscad').append("<tr><td>"+dados.nome[i]+"</td><td>"+dados.valor[i]+"</td></tr>");
+            }
+        }
+    });
+
 }
                                              
                                             
