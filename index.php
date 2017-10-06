@@ -24,6 +24,10 @@
             $nomeTela = "Relatórios";
             include('source/empresa/relatorios.php');
             break;
+        case "orcamento":
+            $nomeTela = "Orçamento";
+            include('source/empresa/orcamento.php');
+            break;
         default:
             include ('source/inicio.php');
             break;
