@@ -1,0 +1,359 @@
+<center>
+    <h1 id="titulo">Aprovar compras</h1>
+</center>
+
+<ul id="tabs-swipe-demo" class="tabs ">
+    <li class="tab col s3"><a class="active tabitem" href="#pedidospendentes">Pedidos pendentes</a></li>
+    <li class="tab col s3"><a class="tabitem" href="#pedidosaprovados">Pedidos aprovados</a></li>
+    <li class="tab col s3"><a class="tabitem" href="#pedidosreprovados">Pedidos reprovados</a></li>
+</ul>
+<div id="pedidospendentes" class="col s12 m12 l12">
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>COD</th>
+                <th>Data do pedido</th>
+                <th>Valor total</th>
+                <th>
+                    <center>Analisar pedido</center>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody id="tbpedidospendentes">
+            <tr class="itemtabela">
+                <td>103285</td>
+                <td>12/09/2017</td>
+                <td>R$ 1270,30</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center>
+                </td>
+            </tr>
+            <tr class="itemtabela">
+                <td>109855</td>
+                <td>12/09/2017</td>
+                <td>R$ 782,20</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center>
+                </td>
+            </tr>
+            <tr class="itemtabela">
+                <td>109825</td>
+                <td>12/09/2017</td>
+                <td>R$ 7856,30</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="pedidosaprovados" class="col s12 m12 l12">
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>COD</th>
+                <th>Data da aprovação</th>
+                <th>Valor total</th>
+                <th>
+                    <center>Informações</center>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="itemtabela">
+                <td>103285</td>
+                <td>12/09/2017</td>
+                <td>R$ 1270,30</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
+                </td>
+            </tr>
+            <tr class="itemtabela">
+                <td>109855</td>
+                <td>12/09/2017</td>
+                <td>R$ 782,20</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
+                </td>
+            </tr>
+            <tr class="itemtabela">
+                <td>109825</td>
+                <td>12/09/2017</td>
+                <td>R$ 7856,30</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="pedidosreprovados" class="col s12 m12 l12">
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>COD</th>
+                <th>Data da aprovação</th>
+                <th>Valor total</th>
+                <th>
+                    <center>Informações</center>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="itemtabela">
+                <td>103285</td>
+                <td>12/09/2017</td>
+                <td>R$ 1270,30</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" onclick="">Ver informações</a></center>
+                </td>
+            </tr>
+            <tr class="itemtabela">
+                <td>109855</td>
+                <td>12/09/2017</td>
+                <td>R$ 782,20</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center>
+                </td>
+            </tr>
+            <tr class="itemtabela">
+                <td>109825</td>
+                <td>12/09/2017</td>
+                <td>R$ 7856,30</td>
+                <td>
+                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div id="produtosJava">
+    <h5>Produtos cadastrados em Java no Backend</h5>
+    <table>
+        <thead>
+            <th>Nome</th>
+            <th>Valor</th>
+        </thead>
+        <tbody id="itenscad">
+
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function telaCarregada() {
+        getData();
+        atualizarTabelaPedidosPendentes(data);
+        $('ul.tabs').tabs({
+            swipeable: false,
+            responsiveThreshold: 1920
+        });
+        $('ul.tabs').tabs('select_tab', 'pedidospendentes');
+    }
+
+    var data = {
+        "itens": [{
+                "cod": "103285",
+                "item": [{
+                        "nome": "5 litros de água de coco",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "5 unidades de impressora",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "5 gramas de fermento",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "5 unidades de celular",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "5 gramas",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    }
+                ],
+                "valortotal": "2500.32",
+                "datapedido": "12/09/2017",
+                "aprovado": false
+            },
+            {
+                "cod": "103284",
+                "item": [{
+                        "nome": "10 Kg de Propietileno",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "10 unidades de impressora",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "10 gramas de fermento",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    }
+                ],
+                "valortotal": "380.20",
+                "datapedido": "15/09/2017",
+                "aprovado": false
+            },
+            {
+                "cod": "103283",
+                "item": [{
+                        "nome": "15 Kg de Propietileno",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "15 unidades de impressora",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "15 gramas de fermento",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    }
+                ],
+                "valortotal": "30.08",
+                "datapedido": "20/09/2017",
+                "aprovado": false
+            },
+            {
+                "cod": "103282",
+                "item": [{
+                        "nome": "20 Kg de Propietileno",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "20 unidades de impressora",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    },
+                    {
+                        "nome": "20 gramas de fermento",
+                        "quantidade": 5,
+                        "valortotal": 250.32,
+                        "aprovado": false
+                    }
+                ],
+                "valortotal": "800.99",
+                "datapedido": "30/08/2017",
+                "aprovado": false
+            }
+        ]
+
+    };
+
+    function atualizarTabelaPedidosPendentes(data) {
+        $("#tbpedidospendentes").html("");
+        for (i = 0; i < data.itens.length; i++) {
+            $("#tbpedidospendentes").append('<tr class="itemtabela"><td>' + data.itens[i].cod + '</td><td>' + data.itens[i].datapedido + '</td><td>R$ ' + data.itens[i].valortotal + '</td><td><center><a onClick="montaModalVerItens(' + i + ')" class="waves-effect waves-light btn">Ver informações</a></center></td></tr>');
+        }
+    }
+
+    function montaModalVerItens(item) {
+        var icon;
+
+        $('#itensModal').html("");
+        $('#codpedido').html(data.itens[item].cod);
+
+        for (i = 0; i < data.itens[item].item.length; i++) {
+            //Materialize.toast('Item: ' + data.itens[item].item[i].nome , 3000, 'rounded');
+            if (data.itens[item].item[i].aprovado == true) {
+                icon = '<i class="material-icons circle green" onClick="trocaAprovado(' + item + ',' + i + ')">check</i>';
+            } else {
+                icon = '<i class="material-icons circle red" onClick="trocaAprovado(' + item + ',' + i + ')">close</i>';
+            }
+            $("#itensModal").append('<li class="collection-item avatar"><div id="iconModal' + i + '">' + icon + '</div><span class="title"><h5>' + data.itens[item].item[i].nome + '</h5></span><p>Preço estimado: R$ ' + data.itens[item].item[i].valortotal + '</p></li>');
+        }
+        alteraBotoes(item);
+        $('.modal').modal();
+        $('#veritens').modal('open');
+    }
+
+    function trocaAprovado(item, i) {
+        if (data.itens[item].item[i].aprovado == true) {
+            data.itens[item].item[i].aprovado = false;
+            $('#iconModal' + i).html('<i class="material-icons circle red" onClick="trocaAprovado(' + item + ',' + i + ')">close</i>');
+        } else {
+            data.itens[item].item[i].aprovado = true;
+            $('#iconModal' + i).html('<i class="material-icons circle green" onClick="trocaAprovado(' + item + ',' + i + ')">check</i>');
+        }
+        alteraBotoes(item);
+        //montaModalVerItens(item);
+    }
+
+    function alteraBotoes(item) {
+        var reprovados = 0;
+        for (i = 0; i < data.itens[item].item.length; i++) {;
+            if (data.itens[item].item[i].aprovado == false) {
+                reprovados = reprovados + 1;
+            }
+        }
+        if (reprovados > 0) {
+            $('#confirmaModal').html('<a href="#!" class="modal-action modal-close waves-effect waves-yellow btn orange darken-4">Enviar para análise</a>');
+        } else {
+            $('#confirmaModal').html('<a href="#!" class="modal-action modal-close waves-effect waves-green btn light-green darken-4">Aprovar</a>');
+        }
+    }
+
+    function getData() {
+        Materialize.toast("Teste", 4000);
+        $.ajax({
+            type: "GET",
+            url: "http://104.41.29.55:880/listarProdutos",
+            dataType: "json",
+            success: function(dados) {
+                for (i = 0; i < dados.id.length; i++) {
+                    $('#itenscad').append("<tr><td>" + dados.nome[i] + "</td><td>" + dados.valor[i] + "</td></tr>");
+                }
+            }
+        });
+
+    }
+
+</script>
+<style>
+    /* Style feito por Brian */
+
+    .itemtabela:hover {
+        background-color: #b2dfdb !important;
+        color: #6200ea;
+    }
+
+    .itemtab {
+        color: #004d40 !important;
+    }
+
+    .itemtab:hover {
+        color: #00796b !important;
+    }
+
+</style>

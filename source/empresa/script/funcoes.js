@@ -84,7 +84,7 @@ function mostrarImagem(i, j) {
 
 function sumirImagem(i) {
     if (!itemClicado) {
-	   document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('source/empresa/Libri.jpg')";
+	   document.getElementsByClassName("imagemProduto")[i-1].style.backgroundImage = "url('Libri.png')";
 	   document.getElementsByClassName("descricaoProduto")[i-1].innerHTML = "" ;
 	   document.getElementsByClassName("nomeProduto")[i-1].innerHTML = "Shulambs";
         $(".preco-unitario").hide("fast");
