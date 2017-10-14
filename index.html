@@ -47,26 +47,28 @@
         </div>
     </nav>
     <!--Div da tela de login-->
-    <div class="container" id="containerLogin">
-        <div id="dLogin">
-            <h5 id="bv" class="col s12 center-align">Informe suas credenciais</h5>
-            <div id="divUser" class="input-field col s6">
-                <input id="user" type="text" class="validate">
-                <label for="user">Usuário</label>
-            </div>
-            <div id="divSenha" class="input-field col s6">
-                <input id="pass" type="password" class="validate">
-                <label for="pass">Senha</label>
-            </div>
-            <div class="input-field col s12">
-                <select>
+    <div class="row">
+        <div class="container" id="containerLogin">
+            <div id="dLogin">
+                <h5 id="bv" class="col s12 center-align">Informe suas credenciais</h5>
+                <div id="divUser" class="input-field col s6">
+                    <input id="user" type="text" class="validate">
+                    <label for="user">Usuário</label>
+                </div>
+                <div id="divSenha" class="input-field col s6">
+                    <input id="pass" type="password" class="validate">
+                    <label for="pass">Senha</label>
+                </div>
+                <div class="input-field col s12">
+                    <select>
                     <option value="" disabled selected>-- Informe o tipo de usuário --</option>
                     <option value="1" text="Cliente">Cliente</option>
                     <option value="2" text="Funcionário">Funcionário</option>
                 </select>
-                <label>Tipo de usuário</label>
+                    <label>Tipo de usuário</label>
+                </div>
+                <a class="waves-effect waves-light btn" style="float: right; position: relative; display: inline-block; margin-right: 10px;" onclick="fazerLogin();">Entrar</a>
             </div>
-            <a class="waves-effect waves-light btn" style="float: right; position: relative; display: inline-block; margin-right: 10px;" onclick="fazerLogin();">Entrar</a>
         </div>
     </div>
     <!--Animação carregamento-->
