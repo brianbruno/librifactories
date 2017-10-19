@@ -109,8 +109,8 @@
             <a class="waves-effect waves-light btn red darken-4 modal-action modal-close"><i class="material-icons left">cancel</i>Cancelar pedido</a>
         </div>
     </div>
-    <!-- Modal Structure 1-->
-    <div id="modal1" class="modal">
+    <!-- Modal Structure NOVA-->
+    <div id="modalDetalhesPedido" class="modal">
         <div class="modal-content">
             <div class="pedidoEsquerda">
                 <h5>Itens</h5>
@@ -122,115 +122,29 @@
                     <div class="item" onmouseenter="mostrarImagem(1, 5);" onclick="iC(1, 5)">Tomate</div>
                     <div class="item" onmouseenter="mostrarImagem(1, 6);" onclick="iC(1, 6)">Chocolate</div>
                 </div>
-                <div class="materiasPrimas">
+                <div id="materiasPrimas" class="materiasPrimas">
                     <h5>Materia-prima a comprar</h5>
                     PET - R$50,00<br> Polipropileno - R$30,00
                     <hr> Total: R$80,00
                 </div>
-                <div class="tempoEstimado">
+                <div id="tempoEstimado">
                     <h5>Tempo estimado</h5>
                     Importar materia-prima - 3 dias<br> Producao - 4 dias<br> Envio - 5 anos
                     <hr> Total: 5 anos e 7 dias
                 </div>
             </div>
-            <div class="pedidoDireita">
-                <h5 style="text-align: center" class="nomeProduto">Shulambs</h5>
+            <div id="pedidoDireita" class="pedidoDireita">
+                <h5 style="text-align: center" id="nomeProduto">Shulambs</h5>
                 <hr>
                 <div class="pd">
-                    <div class="detalhes-esquerda">
-                        <div class="preco-unitario"></div><br>
-                        <div class="preco-total"></div>
-                        <div class="custo-producao"></div>
+                    <div id="detalhes-esquerda" class="detalhes-esquerda">
+                        <div id="preco-unitario"></div><br>
+                        <div id="preco-total"></div>
+                        <div id="custo-producao"></div>
                     </div>
-                    <div class="imagemProduto"></div>
+                    <div id="imagemProduto" class="imagemProduto"></div>
                 </div>
-                <div class="descricaoProduto"></div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Rejeitar</a>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aprovar</a>
-        </div>
-    </div>
-    <!-- Modal Structure 2-->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <div class="pedidoEsquerda">
-                <h5>Itens</h5>
-                <div class="itensPedido" onmouseleave="sumirImagem(2);">
-                    <div class="item" onmouseenter="mostrarImagem(2, 1);" onclick="iC(2, 1)">Pote</div>
-                    <div class="item" onmouseenter="mostrarImagem(2, 2);" onclick="iC(2, 2)">Potinho</div>
-                    <div class="item" onmouseenter="mostrarImagem(2, 3);" onclick="iC(2, 3)">Latinha</div><br>
-                    <div class="item" onmouseenter="mostrarImagem(2, 4);" onclick="iC(2, 4)">Cereal</div>
-                    <div class="item" onmouseenter="mostrarImagem(2, 5);" onclick="iC(2, 5)">Tomate</div>
-                    <div class="item" onmouseenter="mostrarImagem(2, 6);" onclick="iC(2, 6)">Chocolate</div>
-                </div>
-                <div class="materiasPrimas">
-                    <h5>Materia-prima a comprar</h5>
-                    PET - R$50,00<br> Polipropileno - R$30,00
-                    <hr> Total: R$80,00
-                </div>
-                <div class="tempoEstimado">
-                    <h5>Tempo estimado</h5>
-                    Importar materia-prima - 3 dias<br> Producao - 4 dias<br> Envio - 5 anos
-                    <hr> Total: 5 anos e 7 dias
-                </div>
-            </div>
-            <div class="pedidoDireita">
-                <h5 style="text-align: center" class="nomeProduto">Shulambs</h5>
-                <hr>
-                <div class="pd">
-                    <div class="detalhes-esquerda">
-                        <div class="preco-unitario"></div><br>
-                        <div class="preco-total"></div>
-                        <div class="custo-producao"></div>
-                    </div>
-                    <div class="imagemProduto"></div>
-                </div>
-                <div class="descricaoProduto"></div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Rejeitar</a>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aprovar</a>
-        </div>
-    </div>
-    <!-- Modal Structure 3-->
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <div class="pedidoEsquerda">
-                <h5>Itens</h5>
-                <div class="itensPedido" onmouseleave="sumirImagem(3);">
-                    <div class="item" onmouseenter="mostrarImagem(3, 1);" onclick="iC(3, 1);">Pote</div>
-                    <div class="item" onmouseenter="mostrarImagem(3, 2);" onclick="iC(3, 2);">Potinho</div>
-                    <div class="item" onmouseenter="mostrarImagem(3, 3);" onclick="iC(3, 3);">Latinha</div><br>
-                    <div class="item" onmouseenter="mostrarImagem(3, 4);" onclick="iC(3, 4);">Cereal</div>
-                    <div class="item" onmouseenter="mostrarImagem(3, 5);" onclick="iC(3, 5);">Tomate</div>
-                    <div class="item" onmouseenter="mostrarImagem(3, 6);" onclick="iC(3, 6);">Chocolate</div>
-                </div>
-                <div class="materiasPrimas">
-                    <h5>Materia-prima a comprar</h5>
-                    PET - R$50,00<br> Polipropileno - R$30,00
-                    <hr> Total: R$80,00
-                </div>
-                <div class="tempoEstimado">
-                    <h5>Tempo estimado</h5>
-                    Importar materia-prima - 3 dias<br> Producao - 4 dias<br> Envio - 5 anos
-                    <hr> Total: 5 anos e 7 dias
-                </div>
-            </div>
-            <div class="pedidoDireita">
-                <h5 style="text-align: center" class="nomeProduto">Shulambs</h5>
-                <hr>
-                <div class="pd">
-                    <div class="detalhes-esquerda">
-                        <div class="preco-unitario"></div><br>
-                        <div class="preco-total"></div>
-                        <div class="custo-producao"></div>
-                    </div>
-                    <div class="imagemProduto"></div>
-                </div>
-                <div class="descricaoProduto"></div>
+                <div id="descricaoProduto" class="descricaoProduto"></div>
             </div>
         </div>
         <div class="modal-footer">

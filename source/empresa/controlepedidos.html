@@ -40,21 +40,21 @@
             <td>01/04/2017</td>
             <td>R$30,00</td>
             <td>R$20,00</td>
-            <td><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Mais detalhes</a></td>
+            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(1)">Mais detalhes</a></td>
         </tr>
         <tr>
             <td>#02235</td>
             <td>01/04/2017</td>
             <td>R$300,00</td>
             <td>R$200,00</td>
-            <td><a class="waves-effect waves-light btn modal-trigger" href="#modal2">Mais detalhes</a></td>
+            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(2)">Mais detalhes</a></td>
         </tr>
         <tr>
             <td>#03395</td>
             <td>01/04/2017</td>
             <td>R$3000,00</td>
             <td>R$2000,00</td>
-            <td><a class="waves-effect waves-light btn modal-trigger" href="#modal3">Mais detalhes</a></td>
+            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(3)">Mais detalhes</a></td>
         </tr>
     </tbody>
 </table>
@@ -69,12 +69,20 @@
     $(document).ready(function() {
         for (let i = 1; i <= 3; i++) {
             sumirImagem(i);
+            /*document.getElementsByClassName("materiasPrimas")[i - 1].innerHTML = "<h5>Materia-prima a comprar</h5>" + materiaPrima[i].nome[0] + ": R$" + materiaPrima[i].preco[0] + "<br>" + materiaPrima[i].nome[1] + ": R$" + materiaPrima[i].preco[1];
 
-            document.getElementsByClassName("materiasPrimas")[i - 1].innerHTML = "<h5>Materia-prima a comprar</h5>" + materiaPrima[i].nome[0] + ": R$" + materiaPrima[i].preco[0] + "<br>" + materiaPrima[i].nome[1] + ": R$" + materiaPrima[i].preco[1];
-
-            document.getElementsByClassName("tempoEstimado")[i - 1].innerHTML = "<h5>Tempo estimado</h5>" + tempoEstimado[1].nome[0] + ": " + tempoEstimado[1].tempo[0] + "<br>" + tempoEstimado[1].nome[1] + ": " + tempoEstimado[1].tempo[1] + "<br>" + tempoEstimado[1].nome[2] + ": " + tempoEstimado[1].tempo[2] + "<hr>" + tempoEstimado[1].nome[3] + ": " + tempoEstimado[1].tempo[3];
+            document.getElementsByClassName("tempoEstimado")[i - 1].innerHTML = "<h5>Tempo estimado</h5>" + tempoEstimado[1].nome[0] + ": " + tempoEstimado[1].tempo[0] + "<br>" + tempoEstimado[1].nome[1] + ": " + tempoEstimado[1].tempo[1] + "<br>" + tempoEstimado[1].nome[2] + ": " + tempoEstimado[1].tempo[2] + "<hr>" + tempoEstimado[1].nome[3] + ": " + tempoEstimado[1].tempo[3];*/
         }
     });
+    
+    function mostrarModal(i) {
+        //mostrarImagem(1, 1);
+            itemClicado = false;
+        sumirImagem(i);
+        document.getElementById("materiasPrimas").innerHTML = "<h5>Materia-prima a comprar</h5>" + materiaPrima[i].nome[0] + ": R$" + materiaPrima[i].preco[0] + "<br>" + materiaPrima[i].nome[1] + ": R$" + materiaPrima[i].preco[1];
+
+        document.getElementById("tempoEstimado").innerHTML = "<h5>Tempo estimado</h5>" + tempoEstimado[1].nome[0] + ": " + tempoEstimado[1].tempo[0] + "<br>" + tempoEstimado[1].nome[1] + ": " + tempoEstimado[1].tempo[1] + "<br>" + tempoEstimado[1].nome[2] + ": " + tempoEstimado[1].tempo[2] + "<hr>" + tempoEstimado[1].nome[3] + ": " + tempoEstimado[1].tempo[3];
+    }
 
     $('tbody').hide();
     
@@ -136,25 +144,25 @@
 
     function mostrarImagem(i, j) {
         if (!itemClicado) {
-            document.getElementsByClassName("imagemProduto")[i - 1].style.backgroundImage = "url('" + imagens[i, j] + "')";
-            document.getElementsByClassName("descricaoProduto")[i - 1].innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
-            document.getElementsByClassName("nomeProduto")[i - 1].innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
-            $(".preco-unitario").show("fast");
-            document.getElementsByClassName("preco-unitario")[i - 1].innerHTML = "Preço unitário: R$" + precos[i, j];
-            document.getElementsByClassName("preco-total")[i - 1].innerHTML = "Preço total: R$" + (precos[i, j] * 5);
-            document.getElementsByClassName("custo-producao")[i - 1].innerHTML = "Produção: R$150";
+            document.getElementById("imagemProduto").style.backgroundImage = "url('" + imagens[i, j] + "')";
+            document.getElementById("descricaoProduto").innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
+            document.getElementById("nomeProduto").innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
+            $("#preco-unitario").show("fast");
+            document.getElementById("preco-unitario").innerHTML = "Preço unitário: R$" + precos[i, j];
+            document.getElementById("preco-total").innerHTML = "Preço total: R$" + (precos[i, j] * 5);
+            document.getElementById("custo-producao").innerHTML = "Produção: R$150";
         }
     }
 
     function sumirImagem(i) {
         if (!itemClicado) {
-            document.getElementsByClassName("imagemProduto")[i - 1].style.backgroundImage = "url('source/empresa/Libri.png')";
-            document.getElementsByClassName("descricaoProduto")[i - 1].innerHTML = "";
-            document.getElementsByClassName("nomeProduto")[i - 1].innerHTML = "Shulambs";
-            $(".preco-unitario").hide("fast");
-            document.getElementsByClassName("preco-unitario")[i - 1].innerHTML = "";
-            document.getElementsByClassName("preco-total")[i - 1].innerHTML = "Preço total: R$" + precoTotal(i);
-            document.getElementsByClassName("custo-producao")[i - 1].innerHTML = "Produção: R$900";
+            document.getElementById("imagemProduto").style.backgroundImage = "url('source/empresa/Libri.png')";
+            document.getElementById("descricaoProduto").innerHTML = "";
+            document.getElementById("nomeProduto").innerHTML = "Shulambs";
+            $("#preco-unitario").hide("fast");
+            document.getElementById("preco-unitario").innerHTML = "";
+            document.getElementById("preco-total").innerHTML = "Preço total: R$" + precoTotal(i);
+            document.getElementById("custo-producao").innerHTML = "Produção: R$900";
         }
     }
 
@@ -307,7 +315,7 @@
         -moz-background-size: 100% 100%;
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
-        background-image: url('Libri.png');
+        background-image: url('source/empresa/Libri.png');
         transition: .4s;
         float: right;
     }

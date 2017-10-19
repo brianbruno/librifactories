@@ -5,11 +5,37 @@ $(document).ready(function () {
     $("#corpo").hide();
     $(".button-collapse").sideNav();
     $('select').material_select();
-    if (document.cookie == "usuariologado=DarkPink") {
-        document.getElementsByTagName("select")[0].value = 1;
-        $('#containerLogin').hide();
-        chamarTela('source/cliente/meuspedidos.html', 'Meus Pedidos');
+    //VERIFICAR COOKIE PARA ENTRAR NA TELA DO USUÁRIO LOGADO
+    for (let i = 0; i < 5; i++) {
+        if (document.cookie == "usuariologado=" + contas[i].user) {
+            switch (contas[i].tipo) {
+                    case "1":
+                        $("#containerLogin").hide();
+                        chamarTela('source/cliente/meuspedidos.html', 'Meus Pedidos');
+                        break;
+                    case "2-ControlePedidos":
+                        $("#containerLogin").hide();
+                        chamarTela('source/empresa/controlepedidos.html', 'Controle Pedidos');
+                        break;
+                    case "2-AprovarEncomenda":
+                        $("#containerLogin").hide();
+                        chamarTela('source/empresa/aprovarencomenda.html', 'Aprovar Encomenda');
+                        break;
+                    case "2-ControleEstoque":
+                        $("#containerLogin").hide();
+                        $('#corpo').load('source/empresa/controleEstoque.html');
+                        $('#corpo').show();
+                        $('#cont2').html('');
+                        $('#titulo').html('Controle estoque');
+                        $("#nav-mobile-cliente").hide(0);
+                        $("#nav-mobile-empresa").show(200);
+                        document.title = 'Controle Estoque';
+                        break;
+                }
+        }
     }
+    
+    //
     document.getElementById('user').addEventListener("focus", focusUser);
     document.getElementById('pass').addEventListener("focus", focusSenha);
     document.getElementById('user').addEventListener("focusout", outfocusUser);
