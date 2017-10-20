@@ -123,18 +123,6 @@
                 </tbody>
             </table>       
         </div>
-        <div id="produtosJava">
-            <h5>Produtos cadastrados em Java no Backend</h5>
-            <table>
-                <thead>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                </thead>
-                <tbody id="itenscad">
-         
-                </tbody>
-            </table>
-        </div>
 
         <!-- Modal Structure -->
         <div id="veritens" class="modal modal-fixed-footer">

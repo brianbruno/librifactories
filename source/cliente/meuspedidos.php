@@ -12,9 +12,9 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<!--Meu estilo-->
-	<link rel="stylesheet" type="text/css" href="source/cliente/style/estilo.css">
+	<link rel="stylesheet" type="text/css" href="style/estilo.css">
 	<!--Meu script-->
-  <script src="source/cliente/script/funcoes.js"></script>
+  <script src="script/funcoes.js"></script>
 </head>
 
 <body>
