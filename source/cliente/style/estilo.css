@@ -145,6 +145,10 @@
 		display: inline-block;
 		width: 150px;
 		margin-bottom: -20px;
+        
+		display: inline-block;
+		float: right;
+        position: relative;
 	}
   
 	.preloader-wrapper {
