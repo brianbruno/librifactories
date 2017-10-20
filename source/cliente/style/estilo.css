@@ -20,8 +20,9 @@
         user-select: none;
         /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+        
     }
-    
+ 
     .opcoesProduto {
         position: static;
         display: inline-block;
@@ -199,13 +200,6 @@
 
     /*  CODIGO CSS IGOR  */
     
-    div.contatoComEmpresa {
-        position: fixed;
-        right: 145px;
-        top: 173px;
-        display: inline-block;
-        width: 700px;
-    }
     
     div.row {
         display: inline;

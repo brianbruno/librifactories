@@ -611,20 +611,14 @@
             </div>
         </div>
         <!--  CODIGO IGOR  -->
-        <div onmouseover="aparecerAreaMensagem();" style="z-index: 1; display: none;" id="contatoComEmpresa" class="contatoComEmpresa">
-            <div class="row">
-                <div class="col s12 m6 divX">
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title" style="text-align: center;">CONTATE-NOS<br></span>
-                            <p>Converse conosco, digite sua mensagem e forneça o email para qual enviaremos sua resposta. <br><br>Tente! nunca foi tão fácil.</p>
-                        </div>
+        <div onmouseover="aparecerAreaMensagem();" style="z-index: 2;background-color:  white; color: #004d40; border-radius: 3px; box-shadow: 2px 2px 11px rgba(0,0,0,.3); position: fixed; width: 24%; height: 43%; display: block; top:26%; left: 37%; padding: 20px 40px;" id="contatoComEmpresa">
+          <img src="source/cliente/img/message.gif" style="position: absolute; right: 20px; top: 183px; width: 60px;" alt="">
+                             <span style="font-size: 30px;">Entre em contato!!</span>
 
-                    </div>
-                </div>
-            </div>
+                            <p style="font-size: 17px; text-align: center; padding-top:6px;">Alguma dúvida? Precisa conversar com a Libri? Escreva sua mensagem e envie.<br> É simples!<br></p>
+                            <p style="font-size: 16px; padding-top:10px;" >&nbsp; Arraste o mouse ate aqui.</p>
+       
         </div>
-        
         <script>
             function aparecerAreaContato(){
             $("#contatoComEmpresa").fadeIn("slow");
@@ -658,7 +652,7 @@
         </script>
         
         <!--  Contato -->
-        <div id="contatoMensagem" style="z-index: 1;display: none;" class="contatoComEmpresa">
+        <div id="contatoMensagem" style="z-index: 1;display: none; position: fixed; width: 700px; top: 25%; left: 36%;" class="contatoComEmpresa">
             <div class="row">
                 <div class="col s12 m6 divX">
                     <div class="card white darken-1">
@@ -668,7 +662,7 @@
                                 <form class="col s12">
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <img id="imgok" style="display: none;"class="imgok" src="source/cliente/img/carregando.gif" alt="">
+                                            <img id="imgok" class="imgok" src="source/cliente/img/carregando.gif" alt="">
                                             <textarea id="textarea1" class="materialize-textarea"></textarea>
                                             <label for="textarea1">ESCREVA SUA MENSAGEM</label>
                                         </div>
@@ -703,10 +697,12 @@
     }
     .imgok{
         width: 255px;
-        top: 180px;
+        top: 205px;
         z-index: 1;
         position: fixed;
+        display: none;
     }
+
 
 </style>
 
