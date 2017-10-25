@@ -64,7 +64,7 @@
     var precos = new Array();
     var materiaPrima = new Array();
     var tempoEstimado = new Array();
-    var itemClicado = false;
+    var itemClicado = -1;
 
     $(document).ready(function() {
         for (let i = 1; i <= 3; i++) {
@@ -77,7 +77,10 @@
     
     function mostrarModal(i) {
         //mostrarImagem(1, 1);
-            itemClicado = false;
+        itemClicado = -1;
+        document.getElementsByClassName("item")[0].style.backgroundColor = "#26a69a";
+        document.getElementsByClassName("item")[1].style.backgroundColor = "#26a69a";
+        document.getElementsByClassName("item")[2].style.backgroundColor = "#26a69a";
         sumirImagem(i);
         document.getElementById("materiasPrimas").innerHTML = "<h5>Materia-prima a comprar</h5>" + materiaPrima[i].nome[0] + ": R$" + materiaPrima[i].preco[0] + "<br>" + materiaPrima[i].nome[1] + ": R$" + materiaPrima[i].preco[1];
 
@@ -134,16 +137,23 @@
     }
 
     function iC(i, j) {
-        if (!itemClicado) {
-            itemClicado = true;
-        } else {
-            itemClicado = false;
+        if (itemClicado == -1) {
+            itemClicado = j;
+            document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
+        } else if (itemClicado == j) {
+            itemClicado = -1;
+            document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#26a69a";
         }
-        mostrarImagem(i, j);
+        else {
+            document.getElementsByClassName("item")[itemClicado - 1].style.backgroundColor = "#26a69a";
+            itemClicado = j;
+            document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
+        }
+        mostrarImagemImportant(i, j);
     }
 
     function mostrarImagem(i, j) {
-        if (!itemClicado) {
+        if (itemClicado == -1) {
             document.getElementById("imagemProduto").style.backgroundImage = "url('" + imagens[i, j] + "')";
             document.getElementById("descricaoProduto").innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
             document.getElementById("nomeProduto").innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
@@ -153,9 +163,19 @@
             document.getElementById("custo-producao").innerHTML = "Produção: R$150";
         }
     }
+    
+    function mostrarImagemImportant(i, j) {
+            document.getElementById("imagemProduto").style.backgroundImage = "url('" + imagens[i, j] + "')";
+            document.getElementById("descricaoProduto").innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
+            document.getElementById("nomeProduto").innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
+            $("#preco-unitario").show("fast");
+            document.getElementById("preco-unitario").innerHTML = "Preço unitário: R$" + precos[i, j];
+            document.getElementById("preco-total").innerHTML = "Preço total: R$" + (precos[i, j] * 5);
+            document.getElementById("custo-producao").innerHTML = "Produção: R$150";        
+    }
 
     function sumirImagem(i) {
-        if (!itemClicado) {
+        if (itemClicado == -1) {
             document.getElementById("imagemProduto").style.backgroundImage = "url('source/empresa/Libri.png')";
             document.getElementById("descricaoProduto").innerHTML = "";
             document.getElementById("nomeProduto").innerHTML = "Shulambs";
