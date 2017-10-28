@@ -120,10 +120,6 @@ var data = {
 
 };
 
-$(document).ready(function () {
-    atualizarTabelaPedidosPendentes(data);
-});
-
 function atualizarTabelaPedidosPendentes (data){
     var tbPedidosPendentes = $("#tbPedidosPendentes");
     tbPedidosPendentes.html("");
@@ -139,7 +135,7 @@ function montaModalVerItens(item) {
     itensModal.html("");
     codPedido.html(data.itens[item].cod);
 
-    for (i = 0; i<data.itens[item].item.length; i++) {
+    for (var i = 0; i<data.itens[item].item.length; i++) {
         if(data.itens[item].item[i].aprovado){
             icon = '<i class="material-icons circle green" onClick="trocaAprovado('+item+','+i+')">check</i>';
         } else {
@@ -152,30 +148,29 @@ function montaModalVerItens(item) {
     $('#veritens').modal('open');
 }
 
-function trocaAprovado(item, i){
-    if(data.itens[item].item[i].aprovado){
-        data.itens[item].item[i].aprovado = false;
-        $('#iconModal'+i).html('<i class="material-icons circle red" onClick="trocaAprovado('+item+','+i+')">close</i>');
-    } else {
-        data.itens[item].item[i].aprovado = true;
-        $('#iconModal'+i).html('<i class="material-icons circle green" onClick="trocaAprovado('+item+','+i+')">check</i>');
-    }
-    alteraBotoes(item);
-    //montaModalVerItens(item);
-}
-
 function alteraBotoes(item){
     var reprovados=0;
-    for (i = 0; i<data.itens[item].item.length; i++) {
+    for (var i = 0; i<data.itens[item].item.length; i++) {
         if(!data.itens[item].item[i].aprovado){
             reprovados=reprovados+1;
         }
     }
     if(reprovados>0){
-       $('#confirmaModal').html('<a href="#!" class="modal-action modal-close waves-effect waves-yellow btn orange darken-4">Enviar para análise</a>');
+        $('#confirmaModal').html('<a href="#!" class="modal-action modal-close waves-effect waves-yellow btn orange darken-4">Enviar para análise</a>');
     } else {
         $('#confirmaModal').html('<a href="#!" class="modal-action modal-close waves-effect waves-green btn light-green darken-4">Aprovar</a>');
     }
+}
+
+function trocaAprovado(item, i){
+    if(data.itens[item].item[i].aprovado){
+        data.itens[item].item[i].aprovado = false;
+        $("#iconModal"+i).html('<i class="material-icons circle red" onClick="trocaAprovado('+item+','+i+')">close</i>');
+    } else {
+        data.itens[item].item[i].aprovado = true;
+        $("#iconModal"+i).html('<i class="material-icons circle green" onClick="trocaAprovado('+item+','+i+')">check</i>');
+    }
+    alteraBotoes(item);
 }
 
 function telaCarregada() {
@@ -202,7 +197,11 @@ function getData() {
             }
         },
         error: function () {
-            Materialize.toast('Não foi possível recuperar seus dados. Info: ', 3000, 'rounded');
+            Materialize.toast("Não foi possível recuperar seus dados. Info: ", 3000, "rounded");
         }
     });
 }
+
+$(document).ready(function () {
+    atualizarTabelaPedidosPendentes(data);
+});
