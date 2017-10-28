@@ -1,0 +1,71 @@
+body {
+    background-image: url("http://decorpaper.com.br/colecoes/luna/faixa/66568.jpg");
+}
+
+.container {
+    position: relative;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 220px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+
+#divUser {
+    transition: 0.6s;
+}
+
+#divSenha {
+    transition: 0.6s;
+}
+
+.col {
+    transition: 0.6s;
+}
+
+.nav-wrapper {
+    background-color: dodgerblue;
+}
+
+#scale-demo {
+    position: fixed;
+    right: 26px;
+    bottom: 26px;
+}
+
+#carregamento,
+#carr {
+    position: absolute;
+    margin: 0 auto;
+    right: 46%;
+    bottom: 50%;
+    z-index: 1000;
+}
+
+/*.inativo {
+        opacity: 0;
+        display: none;
+    }*/
+
+.inativo {
+    opacity: 0;
+    display: none;
+}
+
+.carregando {
+    opacity: 0.2;
+    display: block;
+}
+
+.card,
+.blue-grey,
+.darken-1 {
+    color: black;
+}
+
+#cont2 {
+    transition: 1s;
+    z-index: 0;
+}

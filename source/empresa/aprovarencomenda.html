@@ -1,0 +1,114 @@
+<ul id="tabs-swipe-demo" class="tabs row">
+    <li class="tab col l3 s12"><a class="active tab_item" href="#pedidosPendentes">Pedidos pendentes</a></li>
+    <li class="tab col l3" s12><a class="tab_item " href="#pedidosAprovados">Pedidos aprovados</a></li>
+    <li class="tab col l3" s12><a class="tab_item" href="#pedidosReprovados">Pedidos reprovados</a></li>
+</ul>
+<div id="pedidosPendentes" class="col s12 m12 l12">
+    <table class="highlight">
+        <thead>
+        <tr>
+            <th>COD</th>
+            <th>Data do pedido</th>
+            <th>Valor total</th>
+            <th>
+                Analisar pedido
+            </th>
+        </tr>
+        </thead>
+
+        <tbody id="tbPedidosPendentes">
+        <tr class="itemTabela">
+            <td>103285</td>
+            <td>12/09/2017</td>
+            <td>R$ 1270,30</td>
+            <td>
+                <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="pedidosAprovados" class="col s12 m12 l12">
+    <table class="highlight">
+        <thead>
+        <tr>
+            <th>COD</th>
+            <th>Data da aprovação</th>
+            <th>Valor total</th>
+            <th>
+                <center>Informações</center>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="itemtabela">
+            <td>103285</td>
+            <td>12/09/2017</td>
+            <td>R$ 1270,30</td>
+            <td>
+                <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
+            </td>
+        </tr>
+        <tr class="itemtabela">
+            <td>109855</td>
+            <td>12/09/2017</td>
+            <td>R$ 782,20</td>
+            <td>
+                <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
+            </td>
+        </tr>
+        <tr class="itemtabela">
+            <td>109825</td>
+            <td>12/09/2017</td>
+            <td>R$ 7856,30</td>
+            <td>
+                <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="pedidosReprovados" class="col s12 m12 l12">
+    <table class="highlight">
+        <thead>
+        <tr>
+            <th>COD</th>
+            <th>Data da aprovação</th>
+            <th>Valor total</th>
+            <th>
+                <center>Informações</center>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="itemtabela">
+            <td>103285</td>
+            <td>12/09/2017</td>
+            <td>R$ 1270,30</td>
+            <td>
+                <center><a class="waves-effect waves-light btn modal-trigger" onclick="">Ver informações</a></center>
+            </td>
+        </tr>
+        <tr class="itemtabela">
+            <td>109855</td>
+            <td>12/09/2017</td>
+            <td>R$ 782,20</td>
+            <td>
+                <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center>
+            </td>
+        </tr>
+        <tr class="itemtabela">
+            <td>109825</td>
+            <td>12/09/2017</td>
+            <td>R$ 7856,30</td>
+            <td>
+                <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="source/empresa/script/scriptencomenda.js"></script>
