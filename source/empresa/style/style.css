@@ -5,6 +5,7 @@
     color: #6200ea;
 }
 
+<<<<<<< HEAD
 .itemTabela {
     align-content: center;
     text-align: center;
@@ -35,6 +36,14 @@ th {
 
 .tabs .indicator {
     background-color: #6200ea;
+=======
+.tab_item {
+    color: #004d40 !important;
+}
+
+.tab_item:hover{
+    color: #00796b !important;
+>>>>>>> master
 }
 
 body {
