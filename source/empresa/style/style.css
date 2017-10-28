@@ -7,6 +7,16 @@
 
 .itemTabela {
     align-content: center;
+    text-align: center;
+}
+
+td {
+    align-content: center;
+    text-align: center;
+}
+
+th {
+    text-align: center;
 }
 
 .tabs .tab a{

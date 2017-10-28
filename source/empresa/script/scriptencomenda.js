@@ -191,9 +191,10 @@ function telaCarregada() {
     tabs.tabs('select_tab', 'pedidosPendentes');
 }
 function getData() {
+
     $.ajax({
         type: "POST",
-        url: "http://librifactories.com:880/listarProdutos",
+        url: "http://librifactories.com:880/?usuario=DarkPink&senha=Arvore&operacao=listarProdutos",
         dataType: "json",
         success: function(dados) {
             for (i = 0; i < dados.id.length; i++) {
