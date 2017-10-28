@@ -1,13 +1,10 @@
-<center>
-    <h1 id="titulo">Aprovar compras</h1>
-</center>
-
 <ul id="tabs-swipe-demo" class="tabs ">
-    <li class="tab col s3"><a class="active tabitem" href="#pedidospendentes">Pedidos pendentes</a></li>
-    <li class="tab col s3"><a class="tabitem" href="#pedidosaprovados">Pedidos aprovados</a></li>
-    <li class="tab col s3"><a class="tabitem" href="#pedidosreprovados">Pedidos reprovados</a></li>
+    <li class="tab col s3"><a class="active tab_item" href="#pedidos_pendentes">Pedidos pendentes</a></li>
+    <li class="tab col s3"><a class="tab_item" href="#pedidos_aprovados">Pedidos aprovados</a></li>
+    <li class="tab col s3"><a class="tab_item" href="#pedidos_reprovados">Pedidos reprovados</a></li>
 </ul>
-<div id="pedidospendentes" class="col s12 m12 l12">
+
+<div id="pedidos_pendentes" class="col s12 m12 l12">
     <table class="highlight">
         <thead>
             <tr>
@@ -48,7 +45,7 @@
         </tbody>
     </table>
 </div>
-<div id="pedidosaprovados" class="col s12 m12 l12">
+<div id="pedidos_aprovados" class="col s12 m12 l12">
     <table class="highlight">
         <thead>
             <tr>
@@ -89,7 +86,7 @@
         </tbody>
     </table>
 </div>
-<div id="pedidosreprovados" class="col s12 m12 l12">
+<div id="pedidos_reprovados" class="col s12 m12 l12">
     <table class="highlight">
         <thead>
             <tr>
@@ -127,18 +124,6 @@
                     <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center>
                 </td>
             </tr>
-        </tbody>
-    </table>
-</div>
-<div id="produtosJava">
-    <h5>Produtos cadastrados em Java no Backend</h5>
-    <table>
-        <thead>
-            <th>Nome</th>
-            <th>Valor</th>
-        </thead>
-        <tbody id="itenscad">
-
         </tbody>
     </table>
 </div>
@@ -340,20 +325,3 @@
     }
 
 </script>
-<style>
-    /* Style feito por Brian */
-
-    .itemtabela:hover {
-        background-color: #b2dfdb !important;
-        color: #6200ea;
-    }
-
-    .itemtab {
-        color: #004d40 !important;
-    }
-
-    .itemtab:hover {
-        color: #00796b !important;
-    }
-
-</style>

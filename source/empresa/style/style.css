@@ -5,11 +5,11 @@
     color: #6200ea;
 }
 
-.itemtab {
+.tab_item {
     color: #004d40 !important;
 }
 
-.itemtab:hover{
+.tab_item:hover{
     color: #00796b !important;
 }
 
