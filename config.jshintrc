@@ -1,7 +1,0 @@
-{
-  "globals": {
-    "$": false,
-    "jquery": false,
-    "document": false
-  }
-}
