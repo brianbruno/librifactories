@@ -1,16 +1,49 @@
-/* Style feito por Brian */ 
+/* Style feito por Brian */
 
-.itemtabela:hover {
+.itemTabela:hover {
     background-color: #b2dfdb !important;
     color: #6200ea;
 }
 
-.itemtab {
+.itemTabela {
+    align-content: center;
+    text-align: center;
+}
+
+td {
+    align-content: center;
+    text-align: center;
+}
+
+th {
+    text-align: center;
+}
+
+.tabs .tab a{
+    color:#000;
+}
+
+.tabs .tab a:hover {
+    background-color:#eee;
+    color:#000;
+}
+
+.tabs .tab a.active {
+    background-color:#b2dfdb;
+    color:#000;
+}
+
+.tabs .indicator {
+    background-color: #6200ea;
+}
+
+.tab_item {
     color: #004d40 !important;
 }
 
-.itemtab:hover{
+.tab_item:hover{
     color: #00796b !important;
+
 }
 
 body {
