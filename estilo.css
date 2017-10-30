@@ -1,3 +1,7 @@
+html,body{
+ height:100%;
+}
+
 body {
     background-image: url("http://decorpaper.com.br/colecoes/luna/faixa/66568.jpg");
 }
@@ -11,6 +15,11 @@ body {
     margin-bottom: 220px;
     overflow: hidden;
     padding-bottom: 50px;
+}
+
+#containerLogin {
+    display: none;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 #divUser {
@@ -68,4 +77,107 @@ body {
 #cont2 {
     transition: 1s;
     z-index: 0;
+}
+
+/*Login*/
+@media screen and (min-width: 480px) {
+    #usuarios {
+        width: 50%;
+        padding: 20px;
+        margin: auto;
+        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .4);
+        background-color: white;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    #usuarios {
+        width: 90%;
+        padding: 20px;
+        margin: auto;
+        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .4);
+        background-color: white;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .usuario {
+        display: inline-block;
+        width: 40%;
+        height: 200px;
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .2);
+        margin: 0px 10px 20px 10px;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .usuario {
+        display: inline-block;
+        width: 80%;
+        height: 200px;
+        border-radius: 5px 5px 5px 5px;
+        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .2);
+        margin-bottom: 40px;
+        margin-top: 20px;
+    }
+}
+
+#user1 > .imagem-usuario {
+    background: url('imagens/Icones/cliente.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#user2 > .imagem-usuario {
+    background: url('imagens/Icones/funcionario.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.usuario:hover {
+    box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.imagem-usuario {
+    height: 80%;
+    background-color: lightgreen;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.nome-usuario {
+    padding: 5%;
+    text-align: center;
+}
+
+#div-senha {
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+    opacity: 0;
+}
+
+#input-senha, #input-usuario {
+    width: 75%;
+    display: inline-block;
+    left: 0px;
+}
+
+#voltar {
+    display: none;
+    top: 0px;
+    border-radius: 20px;
+    cursor: pointer;
+    float: left;
+}
+
+#dLogin {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
 }
