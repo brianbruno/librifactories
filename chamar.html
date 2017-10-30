@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <!-- jQuery library -->
+    <script src="jquery.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="materialize.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="materialize.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script src="script.js"></script>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <title>Chamar Tudo</title>
+</head>
+<body>
+   <div id="mae">
+       <h1>l</h1>
+   </div>
+</body>
+
+<style>
+    #mae{
+        background-color: red;
+        width: 50%;
+        height: auto;
+        overflow: hidden;
+    }
+</style>
+
+<script>
+function chamarAjax(){
+    $.ajax({
+        url: 'cadastro.html', 
+        success: function(response){
+            document.getElementById('mae').innerHTML = response;
+        }
+    });
+}    
+</script>
+
+</html>

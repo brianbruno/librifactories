@@ -15,47 +15,47 @@
     </div>
     <div class="input-field select" id="divFiltrarPor">
         <select class="validate">
-                    <option value="" disabled selected>Filtrar por: </option>
-                    <option value="1">Data</option>
-                    <option value="2">Preço</option>
-                    <option value="3">Situação</option>
-                </select>
+            <option value="" disabled selected>Filtrar por: </option>
+            <option value="1">Data</option>
+            <option value="2">Preço</option>
+            <option value="3">Situação</option>
+        </select>
     </div>
 </div>
 <hr>
 <table class="responsive-table centered highlight">
     <thead>
-        <tr>
-            <th>Cod.</th>
-            <th>Data do pedido</th>
-            <th>Custo de producao</th>
-            <th>Lucro esperado</th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>Cod.</th>
+        <th>Data do pedido</th>
+        <th>Custo de producao</th>
+        <th>Lucro esperado</th>
+        <th></th>
+    </tr>
     </thead>
 
     <tbody>
-        <tr>
-            <td>#00042</td>
-            <td>01/04/2017</td>
-            <td>R$30,00</td>
-            <td>R$20,00</td>
-            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(1)">Mais detalhes</a></td>
-        </tr>
-        <tr>
-            <td>#02235</td>
-            <td>01/04/2017</td>
-            <td>R$300,00</td>
-            <td>R$200,00</td>
-            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(2)">Mais detalhes</a></td>
-        </tr>
-        <tr>
-            <td>#03395</td>
-            <td>01/04/2017</td>
-            <td>R$3000,00</td>
-            <td>R$2000,00</td>
-            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(3)">Mais detalhes</a></td>
-        </tr>
+    <tr>
+        <td>#00042</td>
+        <td>01/04/2017</td>
+        <td>R$30,00</td>
+        <td>R$20,00</td>
+        <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(1)">Mais detalhes</a></td>
+    </tr>
+    <tr>
+        <td>#02235</td>
+        <td>01/04/2017</td>
+        <td>R$300,00</td>
+        <td>R$200,00</td>
+        <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(2)">Mais detalhes</a></td>
+    </tr>
+    <tr>
+        <td>#03395</td>
+        <td>01/04/2017</td>
+        <td>R$3000,00</td>
+        <td>R$2000,00</td>
+        <td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(3)">Mais detalhes</a></td>
+    </tr>
     </tbody>
 </table>
 <script>
@@ -74,13 +74,13 @@
             document.getElementsByClassName("tempoEstimado")[i - 1].innerHTML = "<h5>Tempo estimado</h5>" + tempoEstimado[1].nome[0] + ": " + tempoEstimado[1].tempo[0] + "<br>" + tempoEstimado[1].nome[1] + ": " + tempoEstimado[1].tempo[1] + "<br>" + tempoEstimado[1].nome[2] + ": " + tempoEstimado[1].tempo[2] + "<hr>" + tempoEstimado[1].nome[3] + ": " + tempoEstimado[1].tempo[3];*/
         }
     });
-    
+
     function mostrarModal(i) {
         //mostrarImagem(1, 1);
         itemClicado = -1;
-        document.getElementsByClassName("item")[0].style.backgroundColor = "#26a69a";
+        /*document.getElementsByClassName("item")[0].style.backgroundColor = "#26a69a";
         document.getElementsByClassName("item")[1].style.backgroundColor = "#26a69a";
-        document.getElementsByClassName("item")[2].style.backgroundColor = "#26a69a";
+        document.getElementsByClassName("item")[2].style.backgroundColor = "#26a69a";*/
         sumirImagem(i);
         document.getElementById("materiasPrimas").innerHTML = "<h5>Materia-prima a comprar</h5>" + materiaPrima[i].nome[0] + ": R$" + materiaPrima[i].preco[0] + "<br>" + materiaPrima[i].nome[1] + ": R$" + materiaPrima[i].preco[1];
 
@@ -88,7 +88,7 @@
     }
 
     $('tbody').hide();
-    
+
     function telaCarregada() {
         $('tbody').show(200);
         for (let i = 1; i <= 3; i++)
@@ -139,15 +139,15 @@
     function iC(i, j) {
         if (itemClicado == -1) {
             itemClicado = j;
-            document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
+            //document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
         } else if (itemClicado == j) {
             itemClicado = -1;
-            document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#26a69a";
+            //document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#26a69a";
         }
         else {
-            document.getElementsByClassName("item")[itemClicado - 1].style.backgroundColor = "#26a69a";
+            //document.getElementsByClassName("item")[itemClicado - 1].style.backgroundColor = "#26a69a";
             itemClicado = j;
-            document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
+            //document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
         }
         mostrarImagemImportant(i, j);
     }
@@ -163,15 +163,15 @@
             document.getElementById("custo-producao").innerHTML = "Produção: R$150";
         }
     }
-    
+
     function mostrarImagemImportant(i, j) {
-            document.getElementById("imagemProduto").style.backgroundImage = "url('" + imagens[i, j] + "')";
-            document.getElementById("descricaoProduto").innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
-            document.getElementById("nomeProduto").innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
-            $("#preco-unitario").show("fast");
-            document.getElementById("preco-unitario").innerHTML = "Preço unitário: R$" + precos[i, j];
-            document.getElementById("preco-total").innerHTML = "Preço total: R$" + (precos[i, j] * 5);
-            document.getElementById("custo-producao").innerHTML = "Produção: R$150";        
+        document.getElementById("imagemProduto").style.backgroundImage = "url('" + imagens[i, j] + "')";
+        document.getElementById("descricaoProduto").innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
+        document.getElementById("nomeProduto").innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
+        $("#preco-unitario").show("fast");
+        document.getElementById("preco-unitario").innerHTML = "Preço unitário: R$" + precos[i, j];
+        document.getElementById("preco-total").innerHTML = "Preço total: R$" + (precos[i, j] * 5);
+        document.getElementById("custo-producao").innerHTML = "Produção: R$150";
     }
 
     function sumirImagem(i) {
@@ -217,6 +217,11 @@
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
     }
 
+    .produtos-lindinhos {
+        display: inline-block;
+        width: auto;
+        padding: 10px;
+    }
     .tab-direita {
         width: 200px;
         float: right;
@@ -259,6 +264,11 @@
         width: 50%;
         height: 100%;
         margin-bottom: 20px;
+    }
+
+    .clearFull{
+        display: block;
+        clear: both;
     }
 
     .pedidoDireita {
@@ -350,7 +360,7 @@
         overflow: hidden;
     }
 
-    .item {
+    /*.item {
         display: inline-block;
         padding: 5px;
         background-color: rgba(38, 166, 154, 1);
@@ -358,13 +368,13 @@
         margin-bottom: 5px;
         color: white;
         width: 6em;
-        position: relaive;
+        position: relative;
         text-align: center;
-    }
+    }*/
 
-    .item:hover {
+   /* .item:hover {
         cursor: pointer;
         box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .5);
-    }
+    }*/
 
 </style>
