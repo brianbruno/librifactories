@@ -2,12 +2,13 @@
     <h1 id="titulo">Aprovar compras</h1>
 </center>
 
-<ul id="tabs-swipe-demo" class="tabs ">
-    <li class="tab col s3"><a class="active tabitem" href="#pedidospendentes">Pedidos pendentes</a></li>
-    <li class="tab col s3"><a class="tabitem" href="#pedidosaprovados">Pedidos aprovados</a></li>
-    <li class="tab col s3"><a class="tabitem" href="#pedidosreprovados">Pedidos reprovados</a></li>
+-<ul id="tabs-swipe-demo" class="tabs row">
+    <li class="tab col l3 s12"><a class="active tab_item" href="#pedidosPendentes">Pedidos pendentes</a></li>
+    <li class="tab col l3" s12><a class="tab_item " href="#pedidosAprovados">Pedidos aprovados</a></li>
+    <li class="tab col l3" s12><a class="tab_item" href="#pedidosReprovados">Pedidos reprovados</a></li>
 </ul>
-<div id="pedidospendentes" class="col s12 m12 l12">
+
+<div id="pedidosPendentes" class="col s12 m12 l12">
     <table class="highlight">
         <thead>
             <tr>
@@ -15,13 +16,13 @@
                 <th>Data do pedido</th>
                 <th>Valor total</th>
                 <th>
-                    <center>Analisar pedido</center>
+                    Analisar pedido
                 </th>
             </tr>
         </thead>
 
-        <tbody id="tbpedidospendentes">
-            <tr class="itemtabela">
+        <tbody id="tbPedidosPendentes">
+            <tr class="itemTabela">
                 <td>103285</td>
                 <td>12/09/2017</td>
                 <td>R$ 1270,30</td>
@@ -29,26 +30,10 @@
                     <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center>
                 </td>
             </tr>
-            <tr class="itemtabela">
-                <td>109855</td>
-                <td>12/09/2017</td>
-                <td>R$ 782,20</td>
-                <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center>
-                </td>
-            </tr>
-            <tr class="itemtabela">
-                <td>109825</td>
-                <td>12/09/2017</td>
-                <td>R$ 7856,30</td>
-                <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver itens</a></center>
-                </td>
-            </tr>
         </tbody>
     </table>
 </div>
-<div id="pedidosaprovados" class="col s12 m12 l12">
+<div id="pedidosAprovados" class="col s12 m12 l12">
     <table class="highlight">
         <thead>
             <tr>
@@ -56,40 +41,24 @@
                 <th>Data da aprovação</th>
                 <th>Valor total</th>
                 <th>
-                    <center>Informações</center>
+                    Informações
                 </th>
             </tr>
         </thead>
 
         <tbody>
-            <tr class="itemtabela">
+            <tr class="itemTabela">
                 <td>103285</td>
                 <td>12/09/2017</td>
                 <td>R$ 1270,30</td>
                 <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
-                </td>
-            </tr>
-            <tr class="itemtabela">
-                <td>109855</td>
-                <td>12/09/2017</td>
-                <td>R$ 782,20</td>
-                <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
-                </td>
-            </tr>
-            <tr class="itemtabela">
-                <td>109825</td>
-                <td>12/09/2017</td>
-                <td>R$ 7856,30</td>
-                <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a></center>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ver informações</a>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-<div id="pedidosreprovados" class="col s12 m12 l12">
+<div id="pedidosReprovados" class="col s12 m12 l12">
     <table class="highlight">
         <thead>
             <tr>
@@ -97,51 +66,24 @@
                 <th>Data da aprovação</th>
                 <th>Valor total</th>
                 <th>
-                    <center>Informações</center>
+                    Informações
                 </th>
             </tr>
         </thead>
 
         <tbody>
-            <tr class="itemtabela">
+            <tr class="itemTabela">
                 <td>103285</td>
                 <td>12/09/2017</td>
                 <td>R$ 1270,30</td>
                 <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" onclick="">Ver informações</a></center>
-                </td>
-            </tr>
-            <tr class="itemtabela">
-                <td>109855</td>
-                <td>12/09/2017</td>
-                <td>R$ 782,20</td>
-                <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center>
-                </td>
-            </tr>
-            <tr class="itemtabela">
-                <td>109825</td>
-                <td>12/09/2017</td>
-                <td>R$ 7856,30</td>
-                <td>
-                    <center><a class="waves-effect waves-light btn modal-trigger" href="#veritens">Ver informações</a></center>
+                    <a class="waves-effect waves-light btn modal-trigger" onclick="">Ver informações</a>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-<div id="produtosJava">
-    <h5>Produtos cadastrados em Java no Backend</h5>
-    <table>
-        <thead>
-            <th>Nome</th>
-            <th>Valor</th>
-        </thead>
-        <tbody id="itenscad">
 
-        </tbody>
-    </table>
-</div>
 
 <script>
     function telaCarregada() {
