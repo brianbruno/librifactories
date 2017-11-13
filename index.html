@@ -35,9 +35,11 @@
     <ul class="side-nav" id="mobile-demo">
     </ul>
     <ul id="setorEstoque" class="dropdown-content">
-        <li><a onclick="chamarTela('source/empresa/aprovarencomenda.html', 'Aprovar Encomenda');">Aprovar Encomendas</a></li>
         <li><a onclick="$('#corpo').load('source/empresa/controleEstoque.html'); $('#corpo').show(); $('#cont2').html(''); $('#cont2').hide(); $('#titulo').html('Controle estoque'); document.title = 'Controle Estoque';">Estoque</a></li>
-        <li><a onclick="chamarTela('source/empresa/aprovarencomenda.html', 'Aprovar Encomenda');">Solicitar produtos</a></li>
+        <li><a onclick="chamarTela('source/empresa/solicitarencomenda.html', 'Solicitar Produtos');">Solicitar produtos</a></li>
+    </ul>
+    <ul id="setorFinanceiro" class="dropdown-content">
+        <li><a onclick="chamarTela('source/empresa/aprovarencomenda.html', 'Aprovar Encomenda');">Aprovar Encomendas</a></li>
     </ul>
     <div class="navbar-fixed">
         <nav>
@@ -58,6 +60,7 @@
                 <ul id="nav-mobile-empresa" class="right hide-on-med-and-down" style="display: none" style="color: #eceff1">
                     <li><a onclick="chamarTela('source/empresa/controlepedidos.html', 'Controle Pedidos');">Controle Pedidos</a></li>
                     <li><a class="dropdown-button" href="#!" data-activates="setorEstoque">Setor de Estoque<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="setorFinanceiro">Setor Financeiro<i class="material-icons right">arrow_drop_down</i></a></li>
                     <li><a href="" onclick='document.cookie = "usuariologado=;"'>Sair</a></li>
                 </ul>
 
@@ -237,7 +240,7 @@
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Continuar Comprando</a>
-            <a href="source/cliente/orcamento.html" class="modal-action modal-close waves-effect waves-green btn-flat">Finalizar Compra</a>
+            <a href="#!" onclick="chamarTela('source/cliente/orcamento.html', 'Orçamento')" class="modal-action modal-close waves-effect waves-green btn-flat">Finalizar Compra</a>
         </div>
     </div>
 </body>
