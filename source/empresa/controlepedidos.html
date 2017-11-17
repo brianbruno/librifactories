@@ -67,32 +67,26 @@
     var itemClicado = -1;
 
     $(document).ready(function() {
-        for (let i = 1; i <= 3; i++) {
-            sumirImagem(i);
-            /*document.getElementsByClassName("materiasPrimas")[i - 1].innerHTML = "<h5>Materia-prima a comprar</h5>" + materiaPrima[i].nome[0] + ": R$" + materiaPrima[i].preco[0] + "<br>" + materiaPrima[i].nome[1] + ": R$" + materiaPrima[i].preco[1];
-
-            document.getElementsByClassName("tempoEstimado")[i - 1].innerHTML = "<h5>Tempo estimado</h5>" + tempoEstimado[1].nome[0] + ": " + tempoEstimado[1].tempo[0] + "<br>" + tempoEstimado[1].nome[1] + ": " + tempoEstimado[1].tempo[1] + "<br>" + tempoEstimado[1].nome[2] + ": " + tempoEstimado[1].tempo[2] + "<hr>" + tempoEstimado[1].nome[3] + ": " + tempoEstimado[1].tempo[3];*/
-        }
+        
     });
-
-    function mostrarModal(i) {
-        //mostrarImagem(1, 1);
-        itemClicado = -1;
-        /*document.getElementsByClassName("item")[0].style.backgroundColor = "#26a69a";
-        document.getElementsByClassName("item")[1].style.backgroundColor = "#26a69a";
-        document.getElementsByClassName("item")[2].style.backgroundColor = "#26a69a";*/
-        sumirImagem(i);
-        document.getElementById("materiasPrimas").innerHTML = "<h5>Materia-prima a comprar</h5>" + materiaPrima[i].nome[0] + ": R$" + materiaPrima[i].preco[0] + "<br>" + materiaPrima[i].nome[1] + ": R$" + materiaPrima[i].preco[1];
-
-        document.getElementById("tempoEstimado").innerHTML = "<h5>Tempo estimado</h5>" + tempoEstimado[1].nome[0] + ": " + tempoEstimado[1].tempo[0] + "<br>" + tempoEstimado[1].nome[1] + ": " + tempoEstimado[1].tempo[1] + "<br>" + tempoEstimado[1].nome[2] + ": " + tempoEstimado[1].tempo[2] + "<hr>" + tempoEstimado[1].nome[3] + ": " + tempoEstimado[1].tempo[3];
-    }
 
     $('tbody').hide();
 
     function telaCarregada() {
         $('tbody').show(200);
-        for (let i = 1; i <= 3; i++)
-            sumirImagem(i);
+    }
+
+    function listarPedidos() {
+        requisicao("listarPedidos", function(result) {
+            console.log(result);
+        });
+    }
+
+    function requisicao(query, callback) {
+        $.ajax({
+            url: "http://127.0.0.1/?usuario=" + getCookie("usuariologado") + "&senha=" + getCookie("senha") + "&" + query,
+            success: callback
+        });
     }
 
     for (let i = 1; i <= 6; i++) {
@@ -136,117 +130,38 @@
         return total;
     }
 
-    function iC(i, j) {
-        if (itemClicado == -1) {
-            itemClicado = j;
-            //document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
-        } else if (itemClicado == j) {
-            itemClicado = -1;
-            //document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#26a69a";
-        }
-        else {
-            //document.getElementsByClassName("item")[itemClicado - 1].style.backgroundColor = "#26a69a";
-            itemClicado = j;
-            //document.getElementsByClassName("item")[j - 1].style.backgroundColor = "#a62632";
-        }
-        mostrarImagemImportant(i, j);
+    function mostrarModal(i) {
     }
 
-    function mostrarImagem(i, j) {
-        if (itemClicado == -1) {
-            document.getElementById("imagemProduto").style.backgroundImage = "url('" + imagens[i, j] + "')";
-            document.getElementById("descricaoProduto").innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
-            document.getElementById("nomeProduto").innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
-            $("#preco-unitario").show("fast");
-            document.getElementById("preco-unitario").innerHTML = "Preço unitário: R$" + precos[i, j];
-            document.getElementById("preco-total").innerHTML = "Preço total: R$" + (precos[i, j] * 5);
-            document.getElementById("custo-producao").innerHTML = "Produção: R$150";
+    function selecionarProduto(i) {
+        $("#p" + i).toggleClass("selecionado");
+        if ($("#p" + i).hasClass("selecionado")) {
+            desselecionarProdutos(i);
+            $("#dp" + i).show(200);
+        } else {
+            $("#dp" + i).hide(200);
         }
     }
 
-    function mostrarImagemImportant(i, j) {
-        document.getElementById("imagemProduto").style.backgroundImage = "url('" + imagens[i, j] + "')";
-        document.getElementById("descricaoProduto").innerHTML = "Descrição: " + descricoes[i, j] + "<br>Quantidade: 5 unidades";
-        document.getElementById("nomeProduto").innerHTML = document.getElementsByClassName("item")[j - 1].innerHTML;
-        $("#preco-unitario").show("fast");
-        document.getElementById("preco-unitario").innerHTML = "Preço unitário: R$" + precos[i, j];
-        document.getElementById("preco-total").innerHTML = "Preço total: R$" + (precos[i, j] * 5);
-        document.getElementById("custo-producao").innerHTML = "Produção: R$150";
+    function desselecionarProdutos(i) {
+        for (var a = 1; $("#dp" + a).length; a++) {
+            if (a != i) {
+                $("#dp" + a).hide(200);
+                $("#p" + a).removeClass("selecionado");
+            }
+        }
     }
 
-    function sumirImagem(i) {
-        if (itemClicado == -1) {
-            document.getElementById("imagemProduto").style.backgroundImage = "url('source/empresa/Libri.png')";
-            document.getElementById("descricaoProduto").innerHTML = "";
-            document.getElementById("nomeProduto").innerHTML = "Shulambs";
-            $("#preco-unitario").hide("fast");
-            document.getElementById("preco-unitario").innerHTML = "";
-            document.getElementById("preco-total").innerHTML = "Preço total: R$" + precoTotal(i);
-            document.getElementById("custo-producao").innerHTML = "Produção: R$900";
+    function checar(i) {
+        if ($("#check" + i).html() == "check_circle") {
+            $("#check" + i).html("radio_button_unchecked");
         }
+        else $("#check" + i).html("check_circle");
+        $("#check" + i).toggleClass("selecionado");
     }
 
 </script>
 <style>
-    .tab-esquerda {
-        width: 50%;
-        display: inline-block;
-    }
-
-    .canvas {
-        padding-left: 0px !important;
-    }
-
-    .myChart,
-    .myChart2 {
-        /*border: 1px solid;*/
-        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .2);
-    }
-
-    .myChart:hover,
-    .myChart2:hover {
-        /*border: 1px solid;*/
-        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .4);
-        cursor: pointer;
-    }
-
-    .modal-content>.myChart,
-    .modal-context>.myChart2,
-    .modal-content>.myChart:hover,
-    .modal-context>.myChart2:hover {
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
-    }
-
-    .produtos-lindinhos {
-        display: inline-block;
-        width: auto;
-        padding: 10px;
-    }
-    .tab-direita {
-        width: 200px;
-        float: right;
-        display: inline-block;
-        height: auto;
-    }
-
-    .imagemProdutoRelatorio {
-        width: 100%;
-        height: 200px;
-        background-color: gray;
-    }
-
-    a:hover {
-        cursor: pointer;
-    }
-
-    #divEsquerda {
-        margin-right: 25%;
-        display: inline-block;
-    }
-
-    .modal-content {
-        height: 100% !important;
-    }
 
     .input-field.select {
         display: inline-block;
@@ -254,127 +169,85 @@
         margin-bottom: -20px;
     }
 
-    .modal {
-        height: 100% !important;
-    }
-
-    .pedidoEsquerda {
-        display: inline-block;
-        float: left;
-        width: 50%;
-        height: 100%;
-        margin-bottom: 20px;
-    }
-
     .clearFull{
         display: block;
         clear: both;
     }
 
-    .pedidoDireita {
-        position: fixed;
-        margin-left: 1%;
+    #itens-pedido {
         display: inline-block;
-        float: right;
-        width: 48%;
-        height: 78%;
-        padding-left: 20px;
-        margin-top: 5px;
-        margin-bottom: 20px;
-        padding-right: 20px;
+        width: 45%;
+        vertical-align: top;
     }
 
-    .pedidoDireita>.pd {
-        height: 56%;
-    }
-
-    .modal-footer {
-        position: fixed;
-        bottom: 0px;
-    }
-
-    .detalhes-esquerda {
-        float: left;
+    #detalhes-pedido {
         display: inline-block;
-        width: 38%;
-    }
-
-    .detalhes-esquerda>div {
-        display: inline-block;
-        padding: 5px;
-        background-color: rgba(64, 180, 186, 1);
-        margin-bottom: 5px;
-        border-radius: 5px;
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .3);
-        color: white;
-        float: left;
-    }
-
-    .preco-unitario,
-    .preco-total {
-        width: 100%;
-        height: 30%;
-    }
-
-    .custo-producao {
-        width: 100%;
-        height: 30%;
-    }
-
-    .detalhes-esquerda>div:hover {
-        cursor: default;
-        box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .6);
-    }
-
-    .nomeProduto {
-        font-size: 1.3em;
-    }
-
-    .descricaoProduto {
-        display: inline-block;
-        position: relative;
-        padding-top: 5px;
-        float: left;
-        width: 100%;
-    }
-
-    .imagemProduto {
-        display: inline-block;
-        width: 60%;
-        height: 96%;
-        -moz-background-size: 100% 100%;
-        -webkit-background-size: 100% 100%;
-        background-size: 100% 100%;
-        background-image: url('source/empresa/Libri.png');
-        transition: .4s;
+        width: 45%;
+        vertical-align: top;
         float: right;
     }
 
-    .container {
-        position: relative;
-        margin-top: 20px;
-        background-color: white;
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 220px;
-        overflow: hidden;
+    .div-produto {
+        padding: 10px;
+        box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 1 );
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 2px;
+        transition: 0.5s;
     }
 
-    /*.item {
-        display: inline-block;
-        padding: 5px;
-        background-color: rgba(38, 166, 154, 1);
-        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .2);
-        margin-bottom: 5px;
-        color: white;
-        width: 6em;
-        position: relative;
-        text-align: center;
-    }*/
+    .div-produto > span {
+        font-size: 120%;
+    }
 
-   /* .item:hover {
+    .div-produto.selecionado > span {
+        font-weight: bold;
+    }
+
+    .div-produto:hover {
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, .6);
         cursor: pointer;
-        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, .5);
-    }*/
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .div-produto.selecionado {
+        box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, .6);
+        cursor: pointer;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .detalhes-produto {
+        display: none;
+        width: 90%;
+        margin-top: 1px;
+        margin-bottom: 7px;
+        margin-left: 10%;
+        padding: 7px;
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, .6);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        vertical-align: top;
+    }
+
+    .detalhes-produto > h6 {
+        font-size: 100%;
+        font-weight: bold;
+    }
+
+    .check {
+        color: black;
+    }
+
+    .check.selecionado {
+        color: #32cd32;
+    }
+
+    .check:hover {
+        cursor:default;
+    }
+
+    /*  */
 
 </style>

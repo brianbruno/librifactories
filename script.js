@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $('#carregamento').hide();
     $('#aCriarConta').hide();
     $('.modal').modal();
@@ -314,4 +314,3 @@ function checkFocus() {
         document.getElementById('divSenha').className = "input-field col s8";
     }
 }
-

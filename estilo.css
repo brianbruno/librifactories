@@ -3,7 +3,8 @@ html,body{
 }
 
 body {
-    background-image: url("http://decorpaper.com.br/colecoes/luna/faixa/66568.jpg");
+    /*background-image: url("http://decorpaper.com.br/colecoes/luna/faixa/66568.jpg");*/
+    background-color: rgba(240, 240, 240, 1);
 }
 
 .container {

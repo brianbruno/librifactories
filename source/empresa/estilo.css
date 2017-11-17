@@ -1,5 +1,6 @@
 body {
-    background-image: url("https://files.slack.com/files-tmb/T6WGP2WAU-F77TSB5QD-9191f5efb3/fundo_720.jpg");  
+	/*background-image: url("https://files.slack.com/files-tmb/T6WGP2WAU-F77TSB5QD-9191f5efb3/fundo_720.jpg");  */
+    background-color: rgba(240, 240, 240, 1);
 }
 
 #divEsquerda {
