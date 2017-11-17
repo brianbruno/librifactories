@@ -113,8 +113,12 @@ function confirmaPedido(){
     $.ajax({
         url : "http://127.0.0.1:880?operacao=finalizarPedido&usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha'),
         success: function(shulambs) {
-            alert("Pedido concluído!");
-            console.log("oi");
+            if(shulambs.status == "OK"){
+                alert("Pedido concluído!");
+            }
+            else{ 
+                alert("Erro ao finalizar pedido");
+            }
         }
     })
 }
