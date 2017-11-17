@@ -34,65 +34,79 @@
         width: 100%;
         display: block;
     }
-    .nomeprod{
+    .nomeprod {
         font-size: 14px;
     }
-    .striped{
-         background-color:#81c784;
+    .striped {
+        background-color: #81c784;
     }
 </style>
+
 <body>
-<div class="row">
-    <h2>
-        Itens do pedido:
-    </h2>
-</div>
-<!--Linha1-->
-<div class="linha"></div>
-<!--Lista do pedido -->
-<div style="display: block; margin-top: 12px;">
-    <div class="col s12 m4 l8 tabela">
-        <table style="width: 100%;" class="striped">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Quantidade</th>
-                    <th>Preço</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="nomeprod">Plastico</td>
-                    <td>20</td>
-                    <td>$15,00</td>
-                </tr>
-                <tr>
-                    <td class="nomeprod">Compartimento</td>
-                    <td>250</td>
-                    <td>$150,00</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <h2>
+            Itens do pedido:
+        </h2>
     </div>
-</div>
-<!--Estimativa e entrega -->
-<div class="row" style="display: block; width: 100%;">
-    <br>
-    <h3>
-        Estimativa de preço: R$5,00
-    </h3>
-    <h4>
-        Prazo de entrega: 2 meses
-    </h4>
-</div>
-<!--Footer -->
+    <!--Linha1-->
+    <div class="linha"></div>
+    <!--Lista do pedido -->
+    <div style="display: block; margin-top: 12px;">
+        <div class="col s12 m4 l8 tabela">
+            <table style="width: 100%;" class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Preço Total</th>
+                    </tr>
+                </thead>
+                <tbody id="campos"></tbody>
+            </table>
+        </div>
+    </div>
+    <!--Estimativa e entrega -->
+    <div class="row" style="display: block; width: 100%;">
+        <br>
+        <h3>
+            Estimativa de preço: R$<span id="estPreco"></span>
+        </h3>
+        <h4>
+            Prazo de entrega: 2 meses
+        </h4>
+    </div>
+    <!--Footer -->
 
-<div class="linha"></div>
-<div class="row">
-    <button type="button" class="waves-effect waves-light btn" id="confirma">Confirmar pedido</button>
-    <button type="button" class="waves-effect waves-light btn" id="modifica">Modificar pedido</button>
-</div>
-<div class="row">
-    <button type="button" class="waves-effect waves-light btn" id="errado">Algo de errado?</button>
+    <div class="linha"></div>
+    <div class="row">
+        <button type="button" class="waves-effect waves-light btn" id="confirma" onclick="confirmaPedido()">Confirmar pedido</button>
+        <button type="button" class="waves-effect waves-light btn" id="modifica" onclick="chamarTela('source/cliente/pedido.html', 'Modificando o Pedido')">Modificar pedido</button>
+    </div>
+    <div class="row">
+        <button type="button" class="waves-effect waves-light btn" id="errado">Algo de errado?</button>
     </div>
 
+
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "http://127.0.0.1:880?operacao=listarItensCarrinho&usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha'),
+        success: function(shulambs) {
+            var precoTotal = 0;
+            shulambs.forEach(function(item) {
+                $("#campos").html($('#campos').html() + '<tr><td class="nomeprod">' + item.produto.nome + '</td><td>' + item.quantidade + '</td><td>' + parseFloat((item.produto.preco * item.quantidade).toFixed(2)) +'</td></tr>');
+                precoTotal = precoTotal + (item.produto.preco * item.quantidade);
+            });
+            $("#estPreco").html(parseFloat(precoTotal.toFixed(2)));
+        }
+    });
+}); 
+function confirmaPedido(){
+    $.ajax({
+        url : "http://127.0.0.1:880?operacao=finalizarPedido&usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha'),
+        success: function(shulambs) {
+            console.log("oi");
+        }
+    })
+}
+</script>
