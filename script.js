@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
     $('#carregamento').hide();
     $('#aCriarConta').hide();
     $('.modal').modal();
@@ -14,7 +14,8 @@
     else $('#containerLogin').show();
 
 $("#criarConta").click(function(){
-    $("#dLogin").load('cadastro.html');
+    $("#dLogin").slideUp(500);
+    $("#mae").slideDown(500);
 });
     $("#input-senha").keypress(function (e) {
         if (e.which == 13) {
@@ -105,7 +106,6 @@ $("#criarConta").click(function(){
         }
     });
 });
-
 
 var fazendoLogin = false;
 var usuarioLogado = {
@@ -314,3 +314,4 @@ function checkFocus() {
         document.getElementById('divSenha').className = "input-field col s8";
     }
 }
+
