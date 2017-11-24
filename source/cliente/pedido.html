@@ -9,7 +9,6 @@
     #camposSelect {
         margin: 20px;
     }
-
 </style>
 
 <div id="camposSelect">
@@ -17,21 +16,21 @@
         <div class="row">
             <div class="input-field col s6">
                 <select id="tipoEmbalagem" required>
-                  <option value="" disabled selected>Tipo de embalagem</option>
-                  <option value="1">Caixas K</option>
-                  <option value="2">Pouche com Ziper 250g</option>
-                  <option value="3">Pouche sem Ziper 250g</option>
-                  <option value="4">Flaconete 1ml</option>
-                  <option value="5">Flaconete 4ml</option>
-                  <option value="6">Flaconete 10ml</option>
-                  <option value="7">Flaconete 1ml</option>
-                  <option value="8">Frasco 250ml</option>
-                  <option value="9">Frasco 100ml</option>
-                  <option value="10">Potinho 100g</option>
-                  <option value="11">Potinho 150g</option>
-                  <option value="12">Frasco para Aromatizador 100ml</option>
-                  <option value="13">Frasco de Spray 100ml</option>
-                  <option value="14">Frasco de Spray 330ml</option>
+                    <option value="" disabled selected>Tipo de embalagem</option>
+                    <option value="1">Caixas K</option>
+                    <option value="2">Pouche com Ziper 250g</option>
+                    <option value="3">Pouche sem Ziper 250g</option>
+                    <option value="4">Flaconete 1ml</option>
+                    <option value="5">Flaconete 4ml</option>
+                    <option value="6">Flaconete 10ml</option>
+                    <option value="7">Flaconete 1ml</option>
+                    <option value="8">Frasco 250ml</option>
+                    <option value="9">Frasco 100ml</option>
+                    <option value="10">Potinho 100g</option>
+                    <option value="11">Potinho 150g</option>
+                    <option value="12">Frasco para Aromatizador 100ml</option>
+                    <option value="13">Frasco de Spray 100ml</option>
+                    <option value="14">Frasco de Spray 330ml</option>
                 </select>
                 <label>Tipo de embalagem</label>
             </div>
@@ -39,11 +38,11 @@
                 <select id="corEmbalagem" required>
                     <option value="" disabled selected>Cor da embalagem</option>
                     <option value="1">Transparente</option>
-                    <option value="2">Branco</option>  
-                    <option value="3">Preto</option>       
+                    <option value="2">Branco</option>
+                    <option value="3">Preto</option>
                     <option value="4">Rosa</option>
                     <option value="5">Azul</option>
-                  </select>
+                </select>
                 <label>Cor da embalagem</label>
             </div>
         </div>
@@ -52,10 +51,10 @@
                 <select id="tipoTampa" required>
                     <option value="" disabled selected>Tipo de tampa</option>
                     <option value="1">Tampa de encaixe</option>
-                    <option value="2">Tampa de rosca</option>  
+                    <option value="2">Tampa de rosca</option>
                     <option value="3">Tampa de rosca com spray</option>
                     <option value="4">Tampa de rosca com contador</option>
-                  </select>
+                </select>
                 <label>Tipo da tampa</label>
             </div>
             <div class="input-field col s6">
@@ -63,10 +62,10 @@
                     <option value="" disabled selected>Cor da tampa</option>
                     <option value="1">Transparente</option>
                     <option value="2">Branco</option>
-                    <option value="1">Preto</option>    
+                    <option value="1">Preto</option>
                     <option value="4">Rosa</option>
                     <option value="5">Azul</option>
-                  </select>
+                </select>
                 <label>Cor da tampa</label>
             </div>
         </div>
@@ -76,12 +75,13 @@
                     <option value="" disabled selected>Material Desejado</option>
                     <option value="1">PET - Polietileno tereftalato</option>
                     <option value="2">PVC - Policloreto de polivinila/option>
-                    <option value="3">PP - Polipropileno</option>
-                    <option value="4">PS - Poliestireno</option>
-                    <option value="5">EVA - Acetato-vinilo de etileno</option>
-                  </select>
+                        <option value="3">PP - Polipropileno</option>
+                        <option value="4">PS - Poliestireno</option>
+                        <option value="5">EVA - Acetato-vinilo de etileno</option>
+                </select>
                 <label>Material Desejado</label>
-                <p>Clique <a href="catalogoProduto.html">aqui</a> para mais informações sobre o material.</p>
+                <p>Clique
+                    <a href="catalogoProduto.html">aqui</a> para mais informações sobre o material.</p>
             </div>
             <div class="input-field col s6">
                 <form>
@@ -93,8 +93,98 @@
     </div>
 </div>
 <div class="botoes">
-    <button onclick="clicouBotao()" onclick="aramazenaValores()" id="adicionaItem" class="btn waves-effect  red darken-1" type="submit" name="action">Adicionar Item ao Carrinho
-      <i class="material-icons right">send</i>  
-   </button>
+    <button onclick="clicouBotao()" onclick="aramazenaValores()" id="adicionaItem" class="btn waves-effect  red darken-1" type="submit"
+        name="action">Adicionar Item ao Carrinho
+        <i class="material-icons right">send</i>
+    </button>
     <button data-target="modal1" class="btn modal-trigger waves-effect teal darken-1" name="action" onclick="exibe()">Visualizar Carrinho</button>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+    $(document).ready(function () {
+        $('input#input_text, textarea#textarea1').characterCounter();
+    });
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+
+    function clicouBotao() {
+        if (valida() == true) {
+            adicionar();
+        }
+    }
+
+    function valida() {
+        for (let i = 0; i < 5; i++) {
+            if (document.getElementsByTagName("select")[i].selectedIndex == "") {
+                Materialize.toast('Preencha todos os campos!', 4000);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function adicionar() {
+        var tipoEmbalagem = $("#tipoEmbalagem").find(":selected").text();
+        var corEmbalagem = $("#corEmbalagem").find(":selected").text();
+        var tipoTampa = $("#tipoTampa").find(":selected").text();
+        var corTampa = $("#corTampa").find(":selected").text();
+        var materialDesejado = $("#materialDesejado").find(":selected").text();
+        var quantidade = $("#quantidade").val();
+
+        var item = {            
+            tipoEmbalagem: tipoEmbalagem,
+            corEmbalagem: corEmbalagem,
+            tipoTampa: tipoTampa,
+            corTampa: corTampa,
+            materialDesejado: materialDesejado,
+            quantidade: quantidade
+        }
+        item.tipoEmbalagem;
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:880?usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha') + "&operacao=novoProduto&nome=" + tipoEmbalagem + "&preco=" + $("#tipoEmbalagem").find(":selected").val() + "&material=" + materialDesejado + "&corTampa=" + corTampa + "&corEmbalagem=" + corEmbalagem + "&tipoTampa=" + tipoTampa + "&quantidade=" + quantidade,
+            data: item,
+            dataType: "json",
+            success: function (result) {
+                $("#div1").html(result);
+            }
+        });
+
+
+    }
+
+
+
+    function exibe() {
+        $("#valorTotal").html("0");
+        $("#carrinho").html('');
+
+        var valorTotal = 0.00;
+
+        $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:880?usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha') + "&operacao=listarItensCarrinho",
+            dataType: "json",
+            success: function (result) {
+                for (i = 0; i < result.length; i++) {
+                    var campoTipoEmbalagem = "<tr><td>" + result[i].produto.nome + "</td>";
+                    var campoQuantidade = "<td><input value='" + result[i].quantidade + "' style='text-align: center' class='validate' min='50' max='200' step='10'></td>";
+                    var campoCorTampa = "<td>" + result[i].produto.corTampa + "</td>";
+                    var campoCorEmbalagem = "<td>" + result[i].produto.corEmbalagem + "</td>";
+                    var campoPreco = "<td>" + result[i].produto.preco + "</td>";
+                    var campoExcluir = "<td><i class='small material-icons'>delete_forever</i><td></tr>";
+                    $("#carrinho").append(campoTipoEmbalagem + campoQuantidade + campoCorTampa + campoCorEmbalagem + campoPreco + campoExcluir);
+                    valorTotal += result[i].quantidade * result[i].produto.preco;
+                    $("#valorTotal").html(valorTotal);
+
+                }
+
+            }
+        });
+
+    }
+</script>
