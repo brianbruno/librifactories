@@ -74,10 +74,10 @@
                 <select id="materialDesejado" required>
                     <option value="" disabled selected>Material Desejado</option>
                     <option value="1">PET - Polietileno tereftalato</option>
-                    <option value="2">PVC - Policloreto de polivinila/option>
-                        <option value="3">PP - Polipropileno</option>
-                        <option value="4">PS - Poliestireno</option>
-                        <option value="5">EVA - Acetato-vinilo de etileno</option>
+                    <option value="2">PVC - Policloreto de polivinila</option>
+                    <option value="3">PP - Polipropileno</option>
+                    <option value="4">PS - Poliestireno</option>
+                    <option value="5">EVA - Acetato-vinilo de etileno</option>
                 </select>
                 <label>Material Desejado</label>
                 <p>Clique
@@ -85,7 +85,7 @@
             </div>
             <div class="input-field col s6">
                 <form>
-                    <input id="quantidade" required type="number" placeholder="Quantidade de embalagens" class="validate" min="50" max="200">
+                    <input id="quantidade" required type="number" class="validate" min="50">
                     <label>Quantidade de embalagens</label>
                 </form>
             </div>
@@ -123,6 +123,10 @@
                 Materialize.toast('Preencha todos os campos!', 4000);
                 return false;
             }
+            if ($("#quantidade").hasClass("invalid")) {
+                Materialize.toast('Informe uma quantidade acima de 50!', 4000);
+                return false;
+            }
         }
         return true;
     }
@@ -146,7 +150,7 @@
         item.tipoEmbalagem;
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:880?usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha') + "&operacao=novoProduto&nome=" + tipoEmbalagem + "&preco=" + $("#tipoEmbalagem").find(":selected").val() + "&material=" + materialDesejado + "&corTampa=" + corTampa + "&corEmbalagem=" + corEmbalagem + "&tipoTampa=" + tipoTampa + "&quantidade=" + quantidade,
+            url: "http://127.0.0.1:880?usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha') + "&operacao=novoProduto&nome=" + tipoEmbalagem + "&material=" + materialDesejado + "&corTampa=" + corTampa + "&corEmbalagem=" + corEmbalagem + "&tipoTampa=" + tipoTampa + "&quantidade=" + quantidade,
             data: item,
             dataType: "json",
             success: function (result) {
@@ -172,7 +176,7 @@
             success: function (result) {
                 for (i = 0; i < result.length; i++) {
                     var campoTipoEmbalagem = "<tr><td>" + result[i].produto.nome + "</td>";
-                    var campoQuantidade = "<td><input value='" + result[i].quantidade + "' style='text-align: center' class='validate' min='50' max='200' step='10'></td>";
+                    var campoQuantidade = "<td><input value='" + result[i].quantidade + "' style='text-align: center' class='validate' min='50' step='1'></td>";
                     var campoCorTampa = "<td>" + result[i].produto.corTampa + "</td>";
                     var campoCorEmbalagem = "<td>" + result[i].produto.corEmbalagem + "</td>";
                     var campoPreco = "<td>" + result[i].produto.preco + "</td>";
@@ -186,5 +190,12 @@
             }
         });
 
+
     }
 </script>
+
+<style>
+    i.small.material-icons:hover {
+        cursor: pointer;
+    }
+</style>
