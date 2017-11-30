@@ -147,6 +147,7 @@
             materialDesejado: materialDesejado,
             quantidade: quantidade
         }
+
         item.tipoEmbalagem;
         $.ajax({
             type: "POST",
@@ -154,7 +155,7 @@
             data: item,
             dataType: "json",
             success: function (result) {
-                $("#div1").html(result);
+                Materialize.toast("Item adicionado ao carrinho", 4000);
             }
         });
 
