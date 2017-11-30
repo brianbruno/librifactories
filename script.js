@@ -252,8 +252,9 @@ function fazerLogin() {
 
 
                     setTimeout(function () {
-                        $("#carregamento").addClass("inativo");
-                        $("#carregamento").removeClass("active");
+                        //$("#carregamento").addClass("inativo");
+                        //$("#carregamento").removeClass("active");
+                        $("#carregamento").hide();
                         //AVISO!!!
                         //GAMBIARRA NOS IFs ABAIXO
                         //FAVOR NÃO JULGAR

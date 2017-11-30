@@ -63,8 +63,9 @@
                 html += "<tr>";
                 html += "<td>" + pedido.id + "</td>";
                 html += "<td>" + pedido.dataCompra + "</td>";
-                html += "<td>R$3000,00</td>";
-                html += "<td>R$500,00</td>";
+                html += "<td>R$" + pedido.custoProducao + "</td>";
+                if (pedido.lucroEsperado >= 0) html += "<td>R$" + pedido.lucroEsperado + "</td>";
+                else html += "<td style='color: red'>- R$" + String(pedido.lucroEsperado).substring(1) + "</td>";
                 html += '<td><a class="waves-effect waves-light btn modal-trigger" href="#modalDetalhesPedido" onclick="mostrarModal(' + (index + 1) + ')">Mais detalhes</a></td>';
                 html += "</tr>"
             });
@@ -82,9 +83,26 @@
                     html += '<h5 class="center" style="margin-bottom: 20px">Itens do Pedido</h5>';
                     pedido.produtos.forEach(function (produto, index) {
                         console.log(produto.produto.nome);
-                        html += '<div id="p' + (index+1) + '" class="div-produto" onclick="selecionarProduto(' + (index+1) + ')"><span id="s' + (index+1) + '">' + produto.produto.nome + ' </span>' + produto.quantidade + '</div>';
-                        if (!produto.finalizado) html += '<div id="dp' + (index+1) + '" class="detalhes-produto"><h6>Matéria-prima</h6>Item 1: Em estoque<br>Item 2: Em falta<h6>Tempo de Produção</h6>' + produto.produto.tempoMedio + ' dias<hr>Finalizado: <i id="check' + (index+1) + '" onclick="checar(' + (index+1) + ')" class="check material-icons" style="vertical-align: bottom">radio_button_unchecked</i></div>';
-                        else html += '<div id="dp' + (index+1) + '" class="detalhes-produto"><h6>Matéria-prima</h6>Item 1: Em estoque<br>Item 2: Em falta<h6>Tempo de Produção</h6>' + produto.produto.tempoMedio + ' dias<hr>Finalizado: <i id="check' + (index+1) + '" onclick="checar(' + (index+1) + ')" class="check material-icons selecionado" style="vertical-align: bottom">check_circle</i></div>';
+                        var check = "check_circle";
+                        var selecionado = "selecionado";
+                        if (!produto.finalizado) {
+                            check = "radio_button_unchecked";
+                            selecionado = "";
+                        }
+                        
+                        html += '<div id="p' + (index+1) + '" class="div-produto" onclick="selecionarProduto(' + (index+1) + ')"><span id="s' + (index+1) + '">' + produto.produto.nome + ' </span>' + produto.quantidade + '</div><div id="dp' + (index+1) + '" class="detalhes-produto"><h6>Matéria-prima</h6>';
+                        
+                        produto.produto.materiasPrimas.forEach(function(mp) {
+                            html += mp.nome + ": ";
+                            if (mp.emEstoque) html += "Em estoque";
+                            else html += "Em falta";
+                            html += "<br>";
+                        })
+                        
+                        html += '<hr>Finalizado: <i id="check' + (index+1) + '" onclick="checar(' + (index+1) + ')" class="check material-icons ' + selecionado + '" style="vertical-align: bottom">' + check + '</i></div>';
+                        
+                        listarDetalhesPedido(pedido);
+
                         console.log($("#check" + (index+1)).html())
                         console.log(produto.finalizado);
                         console.log(html);
@@ -93,6 +111,17 @@
                 }
             });
         });
+    }
+
+    function listarDetalhesPedido(pedido) {
+        var html = '<h5 class="center" style="margin-bottom: 20px">Detalhes do Pedido</h5><div id="p1" class="div-produto"><span>Lucro Estimado: </span>' + pedido.lucroEsperado + '</div><div id="p2" class="div-produto"><span>Tempo Estimado: </span>' + pedido.tempoEstimado + ' dias</div><div id="p3"'; 
+        if (pedido.faltaMateriaPrima)
+            html += 'class="div-produto"><span>Falta Matéria-Prima: </span>Sim</div>';
+        else 
+            html += 'class="div-produto"><span>Falta Matéria-Prima: </span>Não</div>';
+        $("#detalhes-pedido").html(html);
+        console.log("OI");
+        console.log(html);
     }
 
     function requisicao(query, callback) {
