@@ -15,7 +15,7 @@
                         
                         var caminhoImagem="url('imagens/Materias/" + result[i].nome + ".jpg')";
                         
-                        document.getElementById("productEstoque").innerHTML += '<div onclick="atualizarPainel(' + i + ');" class="produtoEstocado"><div class="divQuant"><button class="btnQuant">' + result[i].quantidade + '</button></div><div id="'+i+'" class="imagemMateria" style="background-image: ' + caminhoImagem + ';"></div><h1 id="nomeP' + i + '">' + result[i].nome + '</h1></div>';
+                        document.getElementById("productEstoque").innerHTML += '<div onclick="atualizarPainel(' + i + ');" class="produtoEstocado"><div class="divQuant"><button class="btnQuant">' + result[i].quantidade + '</button></div><div id="'+i+'" class="imagemMateria" style="background-image: ' + caminhoImagem + '; border-radius: 10px;"></div><h1 id="nomeP' + i + '">' + result[i].nome + '</h1></div>';
                     }
                 }
 
@@ -149,7 +149,8 @@
         <i class="large material-icons">mode_edit</i>
     </a>
     <ul>
-        <li><a onclick="trocarParaDivAdd();" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+       <li><a onclick="trocarParaDivDel();" class="btn-floating red"><i class="material-icons">delete_forever</i></a></li>
+        <li><a onclick="trocarParaDivAdd();" class="btn-floating blue"><i class="material-icons">add_box</i></a></li>
     </ul>
 </div>
 
