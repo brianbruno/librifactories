@@ -2,6 +2,10 @@
     function trocarParaDivAdd() {
         document.getElementById("subs").innerHTML = '<div style="background-color: rgba(250,250,250,.6); color: black;" id="novaDiv"><h1>Adicionar ao Estoque</h1><div class="row"><div class="col s12">  <div class="input-field inline"><input id="nomeP" type="text"><label for="email" data-error="wrong" data-success="right">Nome</label></div></div></div><div class="row"><div class="col s12"><div class="input-field inline"><input id="quantP" type="text"><label for="email" data-error="wrong" data-success="right">Quantidade</label></div></div></div><a onclick="adicionarProduto();" style="cursor: pointer;" id="selo" class="waves-light btn">Adicionar</a></div>';
     }
+    
+        function trocarParaDivDel() {
+        document.getElementById("subs").innerHTML = '<div style="background-color: rgba(250,250,250,.6); color: black;" id="novaDiv"><h1>Deletar do Estoque</h1><div class="row"><div class="col s12">  <div class="input-field inline"><input id="nomeDel" type="text"><label for="nomeDel" data-error="wrong" data-success="right">Nome</label></div></div></div><div class="row"><div class="col s12"><div class="input-field inline"><input id="quantDel" type="text"><label for="quantDel" data-error="wrong" data-success="right">Quantidade</label></div></div></div><a onclick="deletarProduto();" style="cursor: pointer;" id="selo" class="waves-light btn">Deletar</a></div>';
+    }
 
     function atualizarEstoque() {
         $.ajax({
@@ -62,7 +66,25 @@
 
         }
 
-        setTimeout(atualizarEstoque(), 400);
+        setTimeout(atualizarEstoque(), 500);
+
+    }
+    
+        function deletarProduto() {
+        var nome = $("#nomeDel").val();
+        var quant = $("#quantDel").val();
+
+        if (nome != "" && quant != "") {
+            $.ajax({
+                url: 'http://127.0.0.1:880?nome=' + nome + '&quantidade=' + quant + '&operacao=delProdutosEstoque',
+                success: function(result) {
+
+                }
+            });
+
+        }
+
+        setTimeout(atualizarEstoque(), 500);
 
     }
 
