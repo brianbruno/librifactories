@@ -189,7 +189,7 @@ function getData() {
 
     $.ajax({
         type: "POST",
-        url: "http://librifactories.com:880/?usuario=DarkPink&senha=Arvore&operacao=listarProdutos",
+        url: "http://127.0.0.1:880/?usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha') + "&operacao=listarProdutos",
         dataType: "json",
         success: function(dados) {
             for (i = 0; i < dados.id.length; i++) {

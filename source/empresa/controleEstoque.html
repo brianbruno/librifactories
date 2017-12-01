@@ -23,15 +23,29 @@
             }
         });
     }
+    
+    function atualizarPainel(i){
+        var nomeP = "nomeP"+i;
+        var quantP = "quantP"+i;
+                
+        var nome = $("#"+nomeP).text();
+        var quant = $("#"+quantP).text();
+        
+        var cor;
+        var possui = checarMateriaPrima(nome, function(result) {
+            if (result.emEstoque)
+                cor = "green";
+            else cor = "red";
 
-    function atualizarPainel(i) {
-        var nomeP = "nomeP" + i;
-        var quantP = "quantP" + i;
+            $("#subs").html('<div id="novaDiv"><h1>Materia Prima</h1>Nome: <h5>'+nome+'</h5>Quantidade: <h5>'+quant+'</h5><a id="selo" class="waves-light btn ' + cor + '"></a></div>');  
+        });
+    }
 
-        var nome = $("#" + nomeP).text();
-        var quant = $("#" + quantP).text();
-
-        document.getElementById("subs").innerHTML = '<div id="novaDiv"><h1>Materia Prima</h1>Nome: <h5>' + nome + '</h5>Quantidade: <h5>' + quant + '</h5><a id="selo" class="waves-light btn red"></a></div>';
+    function checarMateriaPrima(nome, callback) {
+        $.ajax({
+            url: "http://127.0.0.1:880?operacao=checarMateriaPrima&usuario=" + getCookie('usuariologado') + "&senha=" + getCookie('senha') + "&nome=" + nome,
+            success: callback
+        });
     }
 
     function adicionarProduto() {
