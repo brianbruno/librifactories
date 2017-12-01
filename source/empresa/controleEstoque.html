@@ -2,8 +2,8 @@
     function trocarParaDivAdd() {
         document.getElementById("subs").innerHTML = '<div style="background-color: rgba(250,250,250,.6); color: black;" id="novaDiv"><h1>Adicionar ao Estoque</h1><div class="row"><div class="col s12">  <div class="input-field inline"><input id="nomeP" type="text"><label for="email" data-error="wrong" data-success="right">Nome</label></div></div></div><div class="row"><div class="col s12"><div class="input-field inline"><input id="quantP" type="text"><label for="email" data-error="wrong" data-success="right">Quantidade</label></div></div></div><a onclick="adicionarProduto();" style="cursor: pointer;" id="selo" class="waves-light btn">Adicionar</a></div>';
     }
-    
-        function trocarParaDivDel() {
+
+    function trocarParaDivDel() {
         document.getElementById("subs").innerHTML = '<div style="background-color: rgba(250,250,250,.6); color: black;" id="novaDiv"><h1>Deletar do Estoque</h1><div class="row"><div class="col s12">  <div class="input-field inline"><input id="nomeDel" type="text"><label for="nomeDel" data-error="wrong" data-success="right">Nome</label></div></div></div><div class="row"><div class="col s12"><div class="input-field inline"><input id="quantDel" type="text"><label for="quantDel" data-error="wrong" data-success="right">Quantidade</label></div></div></div><a onclick="deletarProduto();" style="cursor: pointer;" id="selo" class="waves-light btn">Deletar</a></div>';
     }
 
@@ -16,32 +16,44 @@
                 if (result.length != 0) {
                     document.getElementById("productEstoque").innerHTML = '';
                     for (var i = 0; i < result.length; i++) {
+                        var nome = result[i].nome;
+                        var quant = result[i].quantidade;
+                        var de = 29
+                        var aleatorio = 121+de;
                         
-                        var caminhoImagem="url('imagens/Materias/" + result[i].nome + ".jpg')";
-                        
-                        document.getElementById("productEstoque").innerHTML += '<div onclick="atualizarPainel(' + i + ');" class="produtoEstocado"><div class="divQuant"><button class="btnQuant">' + result[i].quantidade + '</button></div><div id="'+i+'" class="imagemMateria" style="background-image: ' + caminhoImagem + '; border-radius: 10px;"></div><h1 id="nomeP' + i + '">' + result[i].nome + '</h1></div>';
+                            checarMateriaPrima(result[i].nome, function(result2) {
+                                    if (result2.emEstoque)
+                                        cor = "green";
+                                    else {
+                                        cor = "red";                                        
+                                    }
+                            });
+                        var caminhoImagem = "url('imagens/Materias/" + result[i].nome + ".jpg')";
+
+                        document.getElementById("productEstoque").innerHTML += '<div onclick="atualizarPainel(' + i + ');" class="produtoEstocado"><div class="divQuant"><button id="quantP'+i+'" class="btnQuant">' + result[i].quantidade + '</button></div><div id="' + i + '" class="imagemMateria" style="background-image: ' + caminhoImagem + '; border-radius: 10px;"></div><h1 id="nomeP' + i + '">' + result[i].nome + '</h1></div>';
                     }
                 }
-
-
             }
         });
+        if($("#valorCirculoQuant").text() == 0) $("#circuloQuant").fadeTo(2,0); 
     }
-    
-    function atualizarPainel(i){
-        var nomeP = "nomeP"+i;
-        var quantP = "quantP"+i;
-                
-        var nome = $("#"+nomeP).text();
-        var quant = $("#"+quantP).text();
-        
+
+    function atualizarPainel(i) {
+        var nomeP = "nomeP" + i;
+        var quantP = "quantP" + i;
+
+        var nome = $("#" + nomeP).text();
+        var quant = $("#" + quantP).text();
+
         var cor;
         var possui = checarMateriaPrima(nome, function(result) {
             if (result.emEstoque)
                 cor = "green";
-            else cor = "red";
+            else {
+                cor = "red";
+            }
 
-            $("#subs").html('<div id="novaDiv"><h1>Materia Prima</h1>Nome: <h5>'+nome+'</h5>Quantidade: <h5>'+quant+'</h5><a id="selo" class="waves-light btn ' + cor + '"></a></div>');  
+            $("#subs").html('<div id="novaDiv"><h1>Materia Prima</h1>Nome: <h5>' + nome + '</h5>Quantidade: <h5>' + quant + '</h5><a id="selo" class="waves-light btn ' + cor + '"></a></div>');
         });
     }
 
@@ -67,10 +79,11 @@
         }
 
         setTimeout(atualizarEstoque(), 500);
+        setTimeout(atualizarEstoque(), 500);
 
     }
-    
-        function deletarProduto() {
+
+    function deletarProduto() {
         var nome = $("#nomeDel").val();
         var quant = $("#quantDel").val();
 
@@ -84,6 +97,7 @@
 
         }
 
+        setTimeout(atualizarEstoque(), 500);
         setTimeout(atualizarEstoque(), 500);
 
     }
@@ -118,6 +132,7 @@
     }
 
     function alternarNotificacoesProdutos() {
+        $(".btnQuant").toggle();
         $("#notificacoes").slideToggle(500);
         $("#productEstoque").slideToggle(500);
         $("#relatorio").slideToggle(500);
@@ -135,26 +150,20 @@
     </div>
 
     <div id="circuloQuant">
-        <a onclick="alternarNotificacoesProdutos();" data-position="top" class="tooltipped btn btn-floating btn-large pulse" data-position="top" data-tooltip="Alerta de Excesso/Escassez" data-delay="50">2</a>
+        <a id="valorCirculoQuant" onclick="alternarNotificacoesProdutos();" data-position="top" class="tooltipped btn btn-floating btn-large pulse" data-position="top" data-tooltip="Alerta de Excesso/Escassez" data-delay="50">2</a>
     </div>
 
 
     <div id="notificacoes">
-        <ul class="collapsible popout" data-collapsible="accordion">
-            <li>
-                <div onclick="loadDoc('fio_de_nylon'), setTimeout(function(){ carregarCategoria(250, 410, 1200);}, 50);" class="collapsible-header">Fio de Nylon</div>
-                <div class="collapsible-body">Contém 250 - Minimo de 410 - Maximo de 1200 <br> FALTAM: 160 unidades.</div>
-            </li>
-            <li>
-                <div onclick="loadDoc('bombril'), setTimeout(function(){ carregarCategoria(6730, 1000, 4000);}, 50);" class="collapsible-header">Bombril</div>
-                <div class="collapsible-body"><span>Contém 6730 - Minimo de 1000 - Maximo de 4000 <br> SOBRAM: 2730 unidades.</span></div>
-            </li>
+        <ul id="relatorio2" class="collapsible popout" data-collapsible="accordion">
+            <li><div class="collapsible-header">EVA</div><div class="collapsible-body"><span>Contém 2 <br>Necessita de: 43 unidades.</span></div></li>
+             <li><div class="collapsible-header">Tampa de encaixe</div><div class="collapsible-body"><span>Contém 35<br>Necessita de: 29 unidades.</span></div></li>
         </ul>
 
     </div>
 
     <div id="productEstoque">
-    
+
     </div>
 </section>
 
@@ -171,7 +180,7 @@
         <i class="large material-icons">mode_edit</i>
     </a>
     <ul>
-       <li><a onclick="trocarParaDivDel();" class="btn-floating red"><i class="material-icons">delete_forever</i></a></li>
+        <li><a onclick="trocarParaDivDel();" class="btn-floating red"><i class="material-icons">delete_forever</i></a></li>
         <li><a onclick="trocarParaDivAdd();" class="btn-floating blue"><i class="material-icons">add_box</i></a></li>
     </ul>
 </div>
@@ -179,19 +188,17 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
     @import url('https://fonts.googleapis.com/css?family=Rubik');
-    
-    div.imagemMateria{
+    div.imagemMateria {
         position: relative;
         width: 100%;
         height: 100px;
-        background-size:cover;
+        background-size: cover;
         overflow: hidden;
     }
     
-    div.divQuant{
-    }
+    div.divQuant {}
     
-    div button.btnQuant{
+    div button.btnQuant {
         color: white;
         width: 45px;
         position: relative;
@@ -201,11 +208,10 @@
         margin-left: -12px;
         position: absolute;
         border: none;
-        cursor: pointer;    
-        background-color: rgba(57,68,73,.9);
-        box-shadow: 1px 2px 1px 1px rgba(0,0,0,.1);
+        cursor: pointer;
+        background-color: rgba(57, 68, 73, .9);
+        box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, .1);
         z-index: 1;
-        
     }
     
     div#novaDiv h1 {
