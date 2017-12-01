@@ -1,9 +1,8 @@
 <script>
-    
-    function trocarParaDivAdd(){
-         document.getElementById("subs").innerHTML = '<div style="background-color: rgba(250,250,250,.6); color: black;" id="novaDiv"><h1>Adicionar ao Estoque</h1><div class="row"><div class="col s12">  <div class="input-field inline"><input id="nomeP" type="text"><label for="email" data-error="wrong" data-success="right">Nome</label></div></div></div><div class="row"><div class="col s12"><div class="input-field inline"><input id="quantP" type="text"><label for="email" data-error="wrong" data-success="right">Quantidade</label></div></div></div><a onclick="adicionarProduto();" style="cursor: pointer;" id="selo" class="waves-light btn">Adicionar</a></div>';  
+    function trocarParaDivAdd() {
+        document.getElementById("subs").innerHTML = '<div style="background-color: rgba(250,250,250,.6); color: black;" id="novaDiv"><h1>Adicionar ao Estoque</h1><div class="row"><div class="col s12">  <div class="input-field inline"><input id="nomeP" type="text"><label for="email" data-error="wrong" data-success="right">Nome</label></div></div></div><div class="row"><div class="col s12"><div class="input-field inline"><input id="quantP" type="text"><label for="email" data-error="wrong" data-success="right">Quantidade</label></div></div></div><a onclick="adicionarProduto();" style="cursor: pointer;" id="selo" class="waves-light btn">Adicionar</a></div>';
     }
-    
+
     function atualizarEstoque() {
         $.ajax({
             url: 'http://127.0.0.1:880?operacao=atualizarEstoque',
@@ -13,7 +12,7 @@
                 if (result.length != 0) {
                     document.getElementById("productEstoque").innerHTML = '';
                     for (var i = 0; i < result.length; i++) {
-                        document.getElementById("productEstoque").innerHTML += '<div class="produtoEstocado"><h1 id="nomeP'+i+'">' + result[i].nome + '</h1><a onclick="atualizarPainel('+i+')" class="products waves-effect waves-light btn" id="quantP'+i+'">' + result[i].quantidade + '</a></div>';
+                        document.getElementById("productEstoque").innerHTML += '<div class="produtoEstocado"><h1 id="nomeP' + i + '">' + result[i].nome + '</h1><a onclick="atualizarPainel(' + i + ')" class="products waves-effect waves-light btn" id="quantP' + i + '">' + result[i].quantidade + '</a></div>';
                     }
                 }
 
@@ -49,20 +48,20 @@
     function adicionarProduto() {
         var nome = $("#nomeP").val();
         var quant = $("#quantP").val();
-        
-        if(nome != "" && quant != ""){
-        $.ajax({
-            url: 'http://127.0.0.1:880?nome='+nome+'&quantidade='+quant+'&operacao=addProdutosEstoque',
-            success: function(result) {
 
-            }
-        });
+        if (nome != "" && quant != "") {
+            $.ajax({
+                url: 'http://127.0.0.1:880?nome=' + nome + '&quantidade=' + quant + '&operacao=addProdutosEstoque',
+                success: function(result) {
+
+                }
+            });
 
         }
-        
+
         setTimeout(atualizarEstoque(), 400);
-        
-    }    
+
+    }
 
 
     $(document).ready(function() {
@@ -130,32 +129,36 @@
     </div>
 
     <div id="productEstoque">
-
+        <div id="novaDiv">
+            <h1>Materia Prima</h1>Nome:
+            <h5>'+nome+'</h5>Quantidade:
+            <h5>'+quant+'</h5>
+            <a id="selo" class="waves-light btn red"></a>
+        </div>
     </div>
 </section>
 
 <!---->
 
 <div id="subs">
-<div id="novaDiv">
-Bem vindo ao controle de estoque da LIBRI FACTORIES,
-para visualizar uma materia prima, clique sobre a materia
+    <div id="novaDiv">
+        Bem vindo ao controle de estoque da LIBRI FACTORIES, para visualizar uma materia prima, clique sobre a materia
+    </div>
 </div>
- </div>
 
- <div class="fixed-action-btn horizontal">
+<div class="fixed-action-btn horizontal">
     <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
+        <i class="large material-icons">mode_edit</i>
     </a>
     <ul>
-      <li><a onclick="trocarParaDivAdd();" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        <li><a onclick="trocarParaDivAdd();" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
     </ul>
-  </div>
+</div>
 
 <style>
     @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
     @import url('https://fonts.googleapis.com/css?family=Rubik');
-    div#novaDiv h1{
+    div#novaDiv h1 {
         font-size: 30px;
         margin-top: 0;
         text-align: center;
@@ -163,14 +166,14 @@ para visualizar uma materia prima, clique sobre a materia
         margin-bottom: 20px;
     }
     
-    div#novaDiv h5{
+    div#novaDiv h5 {
         font-size: 30px;
         margin-top: 0;
         font-family: 'Rubik', sans-serif;
         margin-bottom: 10px;
     }
     
-    div#novaDiv a{
+    div#novaDiv a {
         float: right;
         cursor: auto;
         margin-bottom: 0;
@@ -178,12 +181,12 @@ para visualizar uma materia prima, clique sobre a materia
     
     div#novaDiv {
         width: 20%;
-        box-shadow: 1px 1px 10px 1px rgba(0,0,0,.5);
+        box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .5);
         padding: 15px;
         right: 70px;
         border-radius: 5px;
         color: white;
-        background-color: rgba(38,50,56,.9);
+        background-color: rgba(38, 50, 56, .9);
         position: fixed;
     }
     
