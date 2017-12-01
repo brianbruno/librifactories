@@ -12,7 +12,10 @@
                 if (result.length != 0) {
                     document.getElementById("productEstoque").innerHTML = '';
                     for (var i = 0; i < result.length; i++) {
-                        document.getElementById("productEstoque").innerHTML += '<div class="produtoEstocado"><h1 id="nomeP' + i + '">' + result[i].nome + '</h1><a onclick="atualizarPainel(' + i + ')" class="products waves-effect waves-light btn" id="quantP' + i + '">' + result[i].quantidade + '</a></div>';
+                        
+                        var caminhoImagem="url('imagens/Materias/" + result[i].nome + ".jpg')";
+                        
+                        document.getElementById("productEstoque").innerHTML += '<div onclick="atualizarPainel(' + i + ');" class="produtoEstocado"><div class="divQuant"><button class="btnQuant">' + result[i].quantidade + '</button></div><div id="'+i+'" class="imagemMateria" style="background-image: ' + caminhoImagem + ';"></div><h1 id="nomeP' + i + '">' + result[i].nome + '</h1></div>';
                     }
                 }
 
@@ -115,12 +118,7 @@
     </div>
 
     <div id="productEstoque">
-        <div id="novaDiv">
-            <h1>Materia Prima</h1>Nome:
-            <h5>'+nome+'</h5>Quantidade:
-            <h5>'+quant+'</h5>
-            <a id="selo" class="waves-light btn red"></a>
-        </div>
+    
     </div>
 </section>
 
@@ -144,6 +142,35 @@
 <style>
     @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
     @import url('https://fonts.googleapis.com/css?family=Rubik');
+    
+    div.imagemMateria{
+        position: relative;
+        width: 100%;
+        height: 100px;
+        background-size:cover;
+        overflow: hidden;
+    }
+    
+    div.divQuant{
+    }
+    
+    div button.btnQuant{
+        color: white;
+        width: 45px;
+        position: relative;
+        height: 45px;
+        border-radius: 100%;
+        margin-top: -18px;
+        margin-left: -12px;
+        position: absolute;
+        border: none;
+        cursor: pointer;    
+        background-color: rgba(57,68,73,.9);
+        box-shadow: 1px 2px 1px 1px rgba(0,0,0,.1);
+        z-index: 1;
+        
+    }
+    
     div#novaDiv h1 {
         font-size: 30px;
         margin-top: 0;
@@ -178,12 +205,16 @@
     
     .produtoEstocado {
         background-color: rgba(255, 255, 255, .5);
-        width: 14%;
+        width: 20%;
         height: auto;
         margin: 1%;
+        margin-top: 20px;
         border-radius: 10px;
         box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, .3);
-        display: inline-block;
+        display: inline-table;
+        cursor: pointer;
+        border-top: 1px dashed rgba(38, 50, 56, .9);
+        border-left: 1px dashed rgba(38, 50, 56, .9);
     }
     
     #productEstoque h1 {
