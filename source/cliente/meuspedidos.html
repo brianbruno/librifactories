@@ -63,9 +63,9 @@
     }
 
     function preencherTabelaProdutos(pedido, index) {
-        node = '<div class="preloader-wrapper big active"><div class="spinner-layer spinner-blue-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div><div class="divTable" id="t"><table class="responsive-table centered highlight tt"><thead><tr><th>Itens</th><th>Quantidade</th><th>Formato</th><th>Material</th><th>Preço Unitário</th></tr></thead><tbody>';
+        node = '<div class="preloader-wrapper big active"><div class="spinner-layer spinner-blue-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div><div class="divTable" id="t"><table class="responsive-table centered highlight tt"><thead><tr><th>Itens</th><th>Cor</th><th>Material</th><th>Quantidade</th><th>Preço Unitário</th></tr></thead><tbody>';
         pedido.produtos.forEach(function(item, i) {
-            node += '<tr><td>' + item.produto.nome + '</td><td>x' + item.quantidade + '</td><td>Retangular</td><td>Plástico 1</td><td>R$' + item.produto.preco + '</td></tr>';
+            node += '<tr><td>' + item.produto.nome + '</td><td>' + item.produto.corEmbalagem + '</td><td>' + item.produto.material + '</td><td>x' + item.quantidade + '</td><td>R$' + item.produto.preco + '</td></tr>';
         });
         node += '</tbody></table></div><div class="imagem" onmouseover="imgHover(' + index + ')" onmouseout="imgOut(' + index + ');"><div class="prox noSelect" onclick="proximaImg(' + index + ')"><span> &gt </span></div><div class="ant noSelect" onclick="imgAnterior(' + index + ')"><span> &lt </span></div></div><div class="opcoesProduto"><a class="waves-effect waves-light btn"><i class="material-icons left">chat</i>Entrar em contato</a></div>';
         return node;
@@ -104,6 +104,8 @@
                 $("#dI" + n).css("opacity", "0.4"); //Reduzir opacidade da Div
                 $("#dI" + n).css("padding-top", "10px"); //Padding
                 document.getElementsByClassName("preloader-wrapper")[n].style.opacity = "1"; //Mostrar carregamento
+                $("#carregamento").addClass("active");
+                $("#carregamento").show();
             }, 250);
             setTimeout(function() {
                 document.getElementsByClassName("detalhes-item")[n - 1].style.opacity = "1"; //Tornar Div totalmente visível
@@ -111,6 +113,7 @@
                 $("#dI" + n + " > #t > table > tbody").css("opacity", "1"); //Mostrar tabela
                 document.getElementsByClassName("imagem")[n - 1].style.backgroundImage = "url('" + imagens[n, 1] + "')";
                 document.getElementsByClassName("opcoesProduto")[n - 1].style.display = "block";
+                $("#carregamento").hide();
             }, 1500);
         } else {
             $("#dI" + n).hide();
@@ -218,8 +221,8 @@
         width: 70% !important;
     }
 
-    .imagem {
-        -moz-background-size: 100% 100%;
+    .imagem { 
+        -moz-background-size: 100% 100%; 
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
         display: inline-block;

@@ -1,6 +1,59 @@
 <script>
+    
+    function trocarParaDivAdd(){
+         document.getElementById("subs").innerHTML = '<div style="background-color: rgba(250,250,250,.6); color: black;" id="novaDiv"><h1>Adicionar ao Estoque</h1><div class="row"><div class="col s12">  <div class="input-field inline"><input id="nomeP" type="text"><label for="email" data-error="wrong" data-success="right">Nome</label></div></div></div><div class="row"><div class="col s12"><div class="input-field inline"><input id="quantP" type="text"><label for="email" data-error="wrong" data-success="right">Quantidade</label></div></div></div><a onclick="adicionarProduto();" style="cursor: pointer;" id="selo" class="waves-light btn">Adicionar</a></div>';  
+    }
+    
+    function atualizarEstoque() {
+        $.ajax({
+            url: 'http://127.0.0.1:880?operacao=atualizarEstoque',
+            success: function(result) {
+                console.log(result);
+
+                if (result.length != 0) {
+                    document.getElementById("productEstoque").innerHTML = '';
+                    for (var i = 0; i < result.length; i++) {
+                        document.getElementById("productEstoque").innerHTML += '<div class="produtoEstocado"><h1 id="nomeP'+i+'">' + result[i].nome + '</h1><a onclick="atualizarPainel('+i+')" class="products waves-effect waves-light btn" id="quantP'+i+'">' + result[i].quantidade + '</a></div>';
+                    }
+                }
+
+
+            }
+        });
+    }
+    
+    function atualizarPainel(i){
+        var nomeP = "nomeP"+i;
+        var quantP = "quantP"+i;
+                
+        var nome = $("#"+nomeP).text();
+        var quant = $("#"+quantP).text();
+        
+        document.getElementById("subs").innerHTML = '<div id="novaDiv"><h1>Materia Prima</h1>Nome: <h5>'+nome+'</h5>Quantidade: <h5>'+quant+'</h5><a id="selo" class="waves-light btn red"></a></div>';  
+    }
+
+    function adicionarProduto() {
+        var nome = $("#nomeP").val();
+        var quant = $("#quantP").val();
+        
+        if(nome != "" && quant != ""){
+        $.ajax({
+            url: 'http://127.0.0.1:880?nome='+nome+'&quantidade='+quant+'&operacao=addProdutosEstoque',
+            success: function(result) {
+
+            }
+        });
+
+        }
+        
+        setTimeout(atualizarEstoque(), 400);
+        
+    }    
+
+
     $(document).ready(function() {
         $('.collapsible').collapsible();
+        atualizarEstoque();
     });
 
     function mudarImgParaQuant() {
@@ -34,31 +87,9 @@
     }
 
 </script>
-
-
-<!-- Campo de pesquisa no estoque -->
-
-
-<div id="pesquisaEstoque">
-    <form action="opcaoDePesquisa">
-        <div id="campoPesquisa">
-            <input id="pesquisaEstoque" type="text" placeholder="Pesquise no estoque">
-        </div>
-        <br>
-        <input class="with-gap" name="group1" type="radio" id="tudo" />
-        <label for="tudo">Tudo</label>
-        <input class="with-gap" name="group1" type="radio" id="materia" />
-        <label for="materia">Materia Prima</label>
-        <input class="with-gap" name="group1" type="radio" id="produtos" />
-        <label for="produtos">Produtos Prontos</label>
-    </form>
-</div>
-
-<!-- Resultado da pesquisa no estoque   -->
-
 <section>
     <div id="informativa" class="informativa">
-        PRODUTOS NO ESTOQUE
+        MATERIAS PRIMAS
     </div>
 
     <div id="relatorio" class="informativa">
@@ -68,17 +99,6 @@
     <div id="circuloQuant">
         <a onclick="alternarNotificacoesProdutos();" data-position="top" class="tooltipped btn btn-floating btn-large pulse" data-position="top" data-tooltip="Alerta de Excesso/Escassez" data-delay="50">2</a>
     </div>
-
-    <div id="productEstoque">
-        <a onclick="loadDoc('fio_de_nylon'), setTimeout(function(){ carregarCategoria(250, 410, 1200);}, 50);" class="products waves-effect waves-light btn">Fio de Nylon</a>
-
-        <a onclick="loadDoc('bombril'), setTimeout(function(){ carregarCategoria(6730, 1000, 4000);}, 50);" class="products waves-effect waves-light btn">Bombril</a>
-
-        <a onclick="loadDoc('cola_tecido'), setTimeout(function(){ carregarCategoria(300, 100, 401);}, 50);" class="products waves-effect waves-light btn">Cola Tecido</a>
-    </div>
-
-
-
 
 
     <div id="notificacoes">
@@ -95,51 +115,97 @@
 
     </div>
 
+    <div id="productEstoque">
 
-
+    </div>
 </section>
 
-<!-- Barra fixa lateral -->
-<div id="sidebarProdutoEmDestaque" class="z-depth-5">
-    <h1>Clique no item que deseja visualizar as informações</h1>
+<!---->
+
+<div id="subs">
+<div id="novaDiv">
+Bem vindo ao controle de estoque da LIBRI FACTORIES,
+para visualizar uma materia prima, clique sobre a materia
 </div>
+ </div>
 
-<!--  AJAX -->
-
-<script>
-    function loadDoc(nome) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("sidebarProdutoEmDestaque").innerHTML =
-                    this.responseText;
-            }
-        };
-        xhttp.open("GET", "source/empresa/estoque/" + nome + ".html", true);
-        xhttp.send();
-    }
-
-</script>
+ <div class="fixed-action-btn horizontal">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a onclick="trocarParaDivAdd();" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+    @import url('https://fonts.googleapis.com/css?family=Rubik');
+    div#novaDiv h1{
+        font-size: 30px;
+        margin-top: 0;
+        text-align: center;
+        font-family: 'Crimson Text', serif;
+        margin-bottom: 20px;
+    }
+    
+    div#novaDiv h5{
+        font-size: 30px;
+        margin-top: 0;
+        font-family: 'Rubik', sans-serif;
+        margin-bottom: 10px;
+    }
+    
+    div#novaDiv a{
+        float: right;
+        cursor: auto;
+        margin-bottom: 0;
+    }
+    
+    div#novaDiv {
+        width: 20%;
+        box-shadow: 1px 1px 10px 1px rgba(0,0,0,.5);
+        padding: 15px;
+        right: 70px;
+        border-radius: 5px;
+        color: white;
+        background-color: rgba(38,50,56,.9);
+        position: fixed;
+    }
+    
+    .produtoEstocado {
+        background-color: rgba(255, 255, 255, .5);
+        width: 14%;
+        height: auto;
+        margin: 1%;
+        border-radius: 10px;
+        box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, .3);
+        display: inline-block;
+    }
+    
+    #productEstoque h1 {
+        margin-top: 10px;
+        padding-top: 20px;
+        font-size: 20px;
+        text-align: center;
+    }
     /*Navbar*/
-
+    
     div.nav-wrapper {
         background-color: #263238;
     }
-
-
     /*Resultado da pesquisa no estoque*/
-
+    
     section {
-        width: 55%;
+        padding: 10px;
+        width: 64%;
         margin-left: 100px;
-        padding-bottom: 500px;
         border-radius: 19px;
+        background-color: rgba(255, 255, 255, .6);
         position: absolute;
         box-shadow: 1px 2px 1px 3px rgba(0, 0, 0, .3);
     }
-
+    
     div.informativa {
         padding: 0;
         background-color: #263238;
@@ -150,7 +216,7 @@
         text-align: center;
         margin-bottom: -25px;
     }
-
+    
     div#circuloQuant a {
         top: -20px;
         left: -60px;
@@ -158,219 +224,25 @@
         font-size: 30px;
         font-family: century gothic;
     }
-
-    section a:first-of-type {
-        margin-left: 40px;
-    }
-
+    
     section a.products {
         margin-bottom: 15px;
+        width: 100%;
     }
-
     /* NOTIFICACOES x PRODUTOS*/
-
+    
     div#notificacoes {
         display: none;
     }
-
+    
     div#productEstoque {
         display: block;
     }
-
+    
     div#informativa {
         display: block;
     }
-
+    
     div#relatorio {
         display: none;
     }
-
-    /*PESQUISAR NO ESTOQUE*/
-
-    div#pesquisaEstoque {
-        display: block;
-        width: 370px;
-        margin: auto;
-        margin-bottom: 30px;
-    }
-
-    div#campoPesquisa {
-        width: 310px;
-        display: block;
-        margin: auto;
-    }
-
-    input#pesquisaEstoque {
-        all: initial;
-        width: 300px;
-        border: 1px solid #4db6ac;
-        transition: 1s;
-        padding-bottom: 5px;
-        padding-top: 5px;
-        padding-left: 10px;
-        color: gray;
-        margin-top: 30px;
-        border-radius: 5px;
-        background-color: rgba(255, 255, 255, .8);
-    }
-
-    input#pesquisaEstoque:hover {
-        transition: 1s;
-        box-shadow: 1px 1px 1px gray;
-    }
-
-
-    /*SIDEBAR DE PRODUTO EM DESTAQUE*/
-
-    div#sidebarProdutoEmDestaque {
-        width: 350px;
-        position: fixed;
-        right: 120px;
-        background-color: ;
-        color: black;
-        cursor: default;
-        box-shadow: 1px 2px 10px 2px rgba(38, 166, 154, .9);
-        border-top-left-radius: 55px;
-        background-color: rgba(250, 250, 250, .3);
-    }
-
-    div.imagemDoProduto {
-        position: absolute;
-        display: none;
-        margin-top: 10px;
-    }
-
-    div.quantProduto {
-        border-radius: 10px;
-        padding-top: 38px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
-
-    div.canto {
-        right: 19px;
-        top: 90px;
-        width: 150px;
-        position: absolute;
-        height: 150px;
-    }
-
-    div.imagemDoProduto img {
-        overflow: hidden;
-        border-radius: 10px;
-        cursor: pointer
-    }
-
-    div#sidebarProdutoEmDestaque h2 {
-        font-size: 50px;
-        text-align: center;
-        margin: 0;
-        margin-top: 20px;
-        line-height: 0.3;
-    }
-
-    img.tabela {
-        position: absolute;
-        width: 140px;
-        right: 23px;
-        top: 80px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-
-    .quantNormal {
-        background-color: rgba(60, 179, 113, .5);
-    }
-
-    .quantAcima {
-        background-color: rgba(255, 215, 0, .5);
-    }
-
-    .quantAbaixo {
-        background-color: rgba(220, 20, 60, .5);
-    }
-
-    .uni {
-        font-size: 10px !important;
-    }
-
-
-    /*SIDEBAR DE PRODUTO EM DESTAQUE - TEXTOS*/
-
-    div#sidebarProdutoEmDestaque h1 {
-        text-align: center;
-        font-size: 30px;
-        margin: 12px;
-        color: #00695c;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #26a69a;
-    }
-
-    div#sidebarProdutoEmDestaque h6 {
-        text-align: right;
-        padding-right: 13px;
-        color: #26a69a;
-        margin-top: -8px;
-        margin-bottom: -5px;
-    }
-
-    div#sidebarProdutoEmDestaque h5 {
-        font-size: 15px;
-        padding: 5px 1px;
-        line-height: 1.2;
-        margin-left: 14px;
-        margin-right: 10px;
-        text-align: center;
-        box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, .5);
-        border-radius: 10px;
-        background-color: #b2dfdb;
-        transition: 1s;
-    }
-
-    div#sidebarProdutoEmDestaque h5:hover {
-        background-color: #26a69a;
-    }
-
-    div#sidebarProdutoEmDestaque h5:first-of-type {
-        margin-top: 20px;
-    }
-
-    div.divH5 {
-        width: 50%;
-        overflow: hidden;
-    }
-
-    div#sidebarProdutoEmDestaque h4 {
-        text-align: center;
-        border-top: 1px solid #26a69a;
-        margin-top: 30px;
-        padding-top: 10px;
-        margin-left: 10px;
-        color: #00695c;
-        margin-right: 10px;
-        font-size: 15px;
-    }
-
-    div#sidebarProdutoEmDestaque h3 {
-        text-align: center;
-        margin: 10px;
-        margin-top: -10px;
-        font-size: 15px;
-    }
-
-
-    .identificadorDeTipo {
-        font-size: 11px !important;
-        background-color: #26a69a;
-        width: 350px;
-        text-align: center !important;
-        margin: 0 !important;
-        right: 0 !important;
-        position: absolute;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-        padding: 3px !important;
-        color: white !important;
-    }
-
-</style>

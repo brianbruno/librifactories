@@ -21,9 +21,6 @@
 
     <link rel="stylesheet" href="estilo.css">
 
-    <!-- Estilo tela: Aprovar Encomenda -->
-    <link rel="stylesheet" href="source/empresa/style/style.css">
-
     <script src="script.js"></script>
 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -70,6 +67,38 @@
     <!--Div da tela de login-->
     <div class="row">
         <div class="container" id="containerLogin">
+
+            <div id="mae" style="background-color: rgba(255,255,255,.1)" class="container">
+                <div class="mediadora z-depth-2 fundocadastro">
+                    <h5 id="h5-cabecalho">Cadastre-se</h5><br>
+                    <div id="progresso" class="ajustar">
+                        <div style="background-color: rgba(255,255,255,.1) " class="progress">
+                            <div id="progredindo" class="determinate" style="width: 0%"></div>
+                        </div>
+                        <img id="ok" src="imagens/Icones/ok.png" alt="">
+
+                    </div>
+                    <div class="z-depth-2 mediadora conteudo"><br>
+                        <div id="divCadastro">
+                            <input autofocus class="aumentar" type="text" placeholder="Nome" id="nome">
+                            <input autofocus class="aumentar" type="text" placeholder="Sobrenome" id="sobrenome">
+                            <input autofocus class="aumentar" type="text" placeholder="Usuario" id="usuario">
+                            <input autofocus class="aumentar" type="email" placeholder="Email" id="email">
+                            <input autofocus class="aumentar" type="password" placeholder="Senha" id="senha">
+                            <input autofocus class="aumentar" type="password" placeholder="Confime sua senha" id="confirmacao">
+                            <img id="img_erro_email" src="imagens/Icones/erro.png" alt="">
+                            <img id="img_erro_usuario" src="imagens/Icones/erro.png" alt="">
+                            <div id="aviso" class="card-panel">
+                                <span class="blue-text text-darken-2">AS SENHAS NÃO CONFEREM!</span>
+                            </div>
+                            <a disabled id="cadastrar" style="margin-top: 8px;" class="waves-effect waves-light btn">CADASTRAR</a>
+                        </div>
+                        <div id="divCadastrado">
+                            <img id="cadastrado" src="imagens/Icones/ok.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="dLogin">
                 <div id="usuarios">
                     <a id="voltar" class="btn"><i class="material-icons">arrow_back</i></a><br>
@@ -109,7 +138,7 @@
         <!-- Scaled in -->
         <div id="carr" class="inativo">
             <a id="scale-demo" href="#!" class="btn-floating btn-large inativo">
-                    <i class="material-icons">add</i>
+                <i class="material-icons">add</i>
             </a>
         </div>
     </div>
@@ -129,57 +158,18 @@
             <a class="waves-effect waves-light btn red darken-4 modal-action modal-close"><i class="material-icons left">cancel</i>Cancelar pedido</a>
         </div>
     </div>
-    <!--- Modal Structure NOVA -->
+    <!--- Modal Structure Controle Pedidos -->
     <div id="modalDetalhesPedido" class="modal">
         <div class="modal-content">
-            <div class="pedidoEsquerda">
-                <h5>Itens</h5>
-                <div class="itensPedido" onmouseleave="sumirImagem(1);">
-                    <table class="responsive-table centered highlight">
-                        <tbody>
-                        <tr class="produtos-lindinhos">
-                            <td><a onclick="iC(1,1);" class='item'>Produto 1</a></td>
-                        </tr>
-                        <tr class="produtos-lindinhos">
-                            <td><a onclick="iC(1,2);" class='item'>Produto 2</a></td>
-                        </tr>
-                        <tr class="produtos-lindinhos">
-                            <td><a onclick="iC(1,3);" class='item'>Produto 3</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div id="materiasPrimas" class="materiasPrimas">
-                    <h5>Materia-prima a comprar</h5>
-                    PET - R$50,00<br> Polipropileno - R$30,00
-                    <hr> Total: R$80,00
-                </div>
-                <div id="tempoEstimado">
-                    <h5>Tempo estimado</h5>
-                    Importar materia-prima - 3 dias<br> Producao - 4 dias<br> Envio - 5 anos
-                    <hr> Total: 5 anos e 7 dias
-                </div>
-            </div>
-            <div id="pedidoDireita" class="pedidoDireita">
-                <h5 style="text-align: center" id="nomeProduto">Shulambs</h5>
-                <hr>
-                <div class="pd">
-                    <div id="detalhes-esquerda" class="detalhes-esquerda">
-                        <div id="preco-unitario"></div><br>
-                        <div id="preco-total"></div>
-                        <div id="custo-producao"></div>
-                    </div>
-                    <div id="imagemProduto" class="imagemProduto"></div>
-                </div>
-                <div id="descricaoProduto" class="descricaoProduto"></div>
-            </div>
+            <h4 class="center">Pedido <span id="idDoPedido"></span></h4>
+            <div id="itens-pedido"></div>
+            <div id="detalhes-pedido"></div>
         </div>
-        <hr>
-        <div id="parteLegal" style="float: right">
-            <a href="#!" class="btn modal-action modal-close waves-effect waves-green">Rejeitar</a>
-            <a href="#!" class="btn modal-action modal-close waves-effect waves-green">Aprovar</a>
+        <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect btn  teal lighten-2">Fechar</a>
         </div>
     </div>
+    
     <!-- Modal Structure Brian-->
     <div id="veritens" class="modal modal-fixed-footer">
         <div class="modal-content">
@@ -215,7 +205,8 @@
                         <td>Azul</td>
                         <td>Transparente</td>
                         <td>R$60.00</td>
-                        <td><i class="small material-icons">delete_forever</i><td>
+                        <td><i class="small material-icons">delete_forever</i>
+                            <td>
                     </tr>
                     <tr>
                         <td>Frasco</td>
@@ -223,7 +214,8 @@
                         <td>Azul</td>
                         <td>Transparente</td>
                         <td>R$60.00</td>
-                        <td><i class="small material-icons">delete_forever</i><td>
+                        <td><i class="small material-icons">delete_forever</i>
+                            <td>
                     </tr>
                     <tr>
                         <td>Frasco</td>
@@ -231,7 +223,8 @@
                         <td>Azul</td>
                         <td>Transparente</td>
                         <td>R$60.00</td>
-                        <td><i class="small material-icons">delete_forever</i><td>
+                        <td><i class="small material-icons">delete_forever</i>
+                            <td>
                     </tr>
                 </tbody>
             </table>
@@ -244,5 +237,158 @@
         </div>
     </div>
 </body>
+
+<script>
+    
+    aumentar('nome');
+    aumentar('usuario');
+    aumentar('sobrenome');
+    aumentar('email');
+    aumentar('senha');
+    aumentar('confirmacao');
+
+    
+    $("#cadastrar").click(function() {
+        var usuario, senha, nome, sobrenome, email;
+        usuario = $("#usuario").val();
+        senha = $("#senha").val();
+        nome = $("#nome").val();
+        sobrenome = $("#sobrenome").val();
+        email = $("#email").val();
+
+
+        $.ajax({
+            url: 'http://127.0.0.1:880?usuario=' + usuario + '&senha=' + senha + '&nome=' + nome + '&sobrenome=' + sobrenome + '&email=' + email + '&operacao=cadastrarCliente',
+            success: function(result) {
+                if (result.status == 'OK') {
+                    $("#divCadastro").hide(600);
+                    setTimeout(function() {
+                        $("#divCadastrado").slideDown(300);
+                    }, 300);
+                    $("#ok").hide(200);
+                    $("#h5-cabecalho").html('Cadastro Efetuado, <br> seja bem vindo!');
+                    setTimeout(function() {
+                        $("#mae").slideUp(500);
+                        $("#dLogin").slideDown(500);
+                    }, 3000);
+                } else {
+                    $("#divCadastro").hide(600);
+                    setTimeout(function() {
+                        $("#divCadastrado").slideDown(300);
+                    }, 300);
+                    document.getElementById("cadastrado").src = "imagens/Icones/erro.png"; 
+                    $("#ok").hide(200);
+                    $("#h5-cabecalho").html('Nao foi possivel, <br> efetivar o cadastro!');
+                    setTimeout(function() {
+                       setTimeout(function(){
+                           window.location.reload();
+                       },600);
+                    }, 3000);
+                }
+            }
+        });
+    });//ok
+    /*VERIFICA SE EXISTE UM EMAIL OU UM USUARIO COM OS DADOS PREENCHIDOS NO FORMULARIO*/
+    function verificarSeExiste(id){
+        if(id == 'email'){
+            var email = $("#email").val();
+            $.ajax({
+                url: 'http://127.0.0.1:880?email='+email+'&operacao=consultarEmail',
+                success: function(result){
+                    if(result == true){
+                        $("#email").addClass('existente');
+                        $("#img_erro_email").show(300);
+                        if($("#email").val() != '')Materialize.toast('Esse e-mail já foi cadastrado meu querido(a), tente outro!', 4000);
+                    }else{
+                        $("#email").removeClass('existente');
+                        $("#img_erro_email").hide(300);
+                    }
+                }
+            });
+        }
+        if(id == 'usuario'){
+            var usuario = $("#usuario").val();
+            $.ajax({
+                url: 'http://127.0.0.1:880?usuario='+usuario+'&operacao=consultarUsuario',
+                success: function(result){
+                       if(result == true){
+                        $("#usuario").addClass('existente');
+                           $("#img_erro_usuario").show(300);
+                            Materialize.toast('Esse usuario está indisponivel, tente outro por favor!', 4000);
+                    }else{
+                        $("#usuario").removeClass('existente');
+                        $("#img_erro_usuario").hide(300);
+                    }
+                }
+            });
+        }
+    }
+
+    function aumentar(id) {        
+        $("#" + id).focusin(function() {
+            $("#" + id).addClass('ativo');
+        });
+        $("#" + id).focusout(function() {
+            $("#" + id).removeClass('ativo');
+        });
+    }
+    
+    $("#email").blur(function(){
+            verificarSeExiste('email');
+               });    
+    
+    $("#usuario").blur(function(){
+            verificarSeExiste('usuario');
+               });
+    
+
+    function checarProgresso() {
+        var progresso = 0;
+        if ($("#nome").val() != '') progresso += 20;
+        if ($("#sobrenome").val() != '') progresso += 20;
+        if ($("#email").val() != '') progresso += 20;
+        if ($("#usuario").val() != '') progresso += 20;
+        if ($("#confirmacao").val() != '') {
+            if ($("#confirmacao").val() != $("#senha").val() && $("#confirmacao").val() != $("#senha").val())
+                $("#aviso").show(600);
+            else {
+                progresso += 20;
+                $("#aviso").hide(600);
+            }
+
+        }
+        if ($("#confirmacao").val() == '' && $("#senha").val() == '')
+            $("#aviso").hide(600);
+
+        document.getElementById("progredindo").style.width = progresso + "%";
+        if (progresso == 100) {
+            $("#ok").show(300);
+            document.getElementById("cadastrar").removeAttribute('disabled');
+        } else {
+            $("#ok").hide(300);
+            document.getElementById("cadastrar").setAttribute('disabled', 'disabled');
+        }
+    }
+
+    $("#nome").keyup(function(e) {
+        checarProgresso();
+    });
+    $("#sobrenome").keyup(function(e) {
+        checarProgresso();
+    });
+    $("#usuario").keyup(function(e) {
+        checarProgresso();
+    });
+    $("#email").keyup(function(e) {
+        checarProgresso();
+    });
+    $("#senha").keyup(function(e) {
+        checarProgresso();
+    });
+    $("#confirmacao").keyup(function(e) {
+        checarProgresso();
+    });
+
+</script>
 
 </html>

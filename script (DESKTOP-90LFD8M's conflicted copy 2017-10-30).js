@@ -13,14 +13,17 @@ $(document).ready(function () {
     if (user != "" && senha != "") login(user, senha);
     else $('#containerLogin').show();
 
-$("#criarConta").click(function(){
-    $("#dLogin").slideUp(500);
-    $("#mae").slideDown(500);
-});
     $("#input-senha").keypress(function (e) {
         if (e.which == 13) {
             fazerLogin();
         }
+    });
+    
+    $("#criarConta").click(function(){
+        $("#dLogin").slideUp(500);
+        setTimeout(function(){
+        $("#mae").slideDown(500);     
+        }, 500)
     });
 
     $("#input-usuario").keyup(function (e) {
@@ -106,6 +109,7 @@ $("#criarConta").click(function(){
         }
     });
 });
+
 
 var fazendoLogin = false;
 var usuarioLogado = {
@@ -201,7 +205,9 @@ function fazerLogin() {
         url: lh,
         success: function (result) {
             if (result != null) {
-                
+                document.cookie = "usuariologado=" + result.usuario;
+                document.cookie = "senha=" + result.senha;
+
                 usuarioLogado = {
                     usuario: result.usuario,
                     senha: result.senha,
@@ -211,8 +217,6 @@ function fazerLogin() {
 
                 if (usuarioLogado.tipo.startsWith(tipoUsuario)) {
 
-                    document.cookie = "usuariologado=" + result.usuario;
-                    document.cookie = "senha=" + result.senha;
                     $("#titulo").html("Efetuando login");
                     $("#nav-mobile-meuspedidos").show(200);
                     $("#mobile-demo").html($("#nav-mobile-meuspedidos").html());
@@ -252,9 +256,8 @@ function fazerLogin() {
 
 
                     setTimeout(function () {
-                        //$("#carregamento").addClass("inativo");
-                        //$("#carregamento").removeClass("active");
-                        $("#carregamento").hide();
+                        $("#carregamento").addClass("inativo");
+                        $("#carregamento").removeClass("active");
                         //AVISO!!!
                         //GAMBIARRA NOS IFs ABAIXO
                         //FAVOR NÃO JULGAR

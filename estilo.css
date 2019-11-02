@@ -2,9 +2,130 @@ html,body{
  height:100%;
 }
 
+
+    #mae{
+        margin-top: -35px;
+        display: none;
+    }
+    
+    #progredindo{
+        background-color: white !important;
+
+    }
+    
+    #cadastrado{
+        width: 20%;
+    }
+    
+    #divCadastrado{
+        display: none;
+    }
+    
+    #aviso {
+        width: 100%;
+        top: 0px;
+        font-size: 15px;
+        position: relative;
+        display: none;
+    }
+    
+    #aviso span {
+        color: red !important;
+    }
+    
+    a {
+        margin-bottom: 10px;
+    }
+    
+    #ok {
+        width: 10%;
+        position: absolute;
+        left: 102%;
+        top: -20px;
+        display: none;
+    }
+    
+    .fundocadastro {
+        background-color: darkcyan !important;
+        color: white !important;
+        border-radius: 10px;
+    }
+    
+    .mediadora {
+        width: 65%;
+        color: darkcyan;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        padding: 10px 20px;
+    }
+    
+    .ajustar {
+        width: 110%;
+        position: relative;
+        margin-left: -5%;
+        transition: 3s;
+    }
+    
+    .conteudo {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    input.aumentar {
+        display: inline-block;
+        width: 80% !important;
+    }
+    
+    input.aumentar.ativo {
+        width: 90% !important;
+    }
+    
+    img#eng {
+        width: 13%;
+        margin-bottom: -20px;
+        top: -40px;
+        float: right;
+        position: relative;
+    }
+
+    img#img_erro_email{
+    width: 15px;
+    top: 317px;
+    position: absolute;
+    display: none;
+    }
+
+    img#img_erro_usuario{
+    width: 15px;
+    top: 265px;
+    position: absolute;
+    display: none;
+    }
+
+    input.existente{
+    border-bottom: 1px solid crimson !important;
+    box-shadow: none!important;
+    color: red !important;
+    }
+    
+    #mae input{
+        height: 30px !important;
+        margin: 10px 5px !important;
+        padding-left: 5px !important;
+    }
+    
+    #mae h5 {
+        font-size: 30px;
+        margin-bottom: -10px;
+    }
+
 body {
     background-image: url("http://decorpaper.com.br/colecoes/luna/faixa/66568.jpg");
 }
+
+
 
 .container {
     position: relative;
